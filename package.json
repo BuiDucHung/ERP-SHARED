@@ -1,7 +1,6 @@
 {
-  "name": "open-client",
+  "name": "@erp/shared",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@ant-design/charts": "^2.3.0",
     "@ant-design/icons": "^6.0.0",
@@ -43,7 +42,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "cross-env GENERATE_SOURCEMAP=false craco build"
+    "build": "babel . --out-dir dist --copy-files --ignore ,dist"
   },
   "resolutions": {
     "strip-ansi": "6.0.0"
@@ -67,6 +66,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
     "cross-env": "^10.1.0"
   }
 }
