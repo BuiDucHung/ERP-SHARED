@@ -1,3 +1,10 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.InAppEvent = exports.DRAWER_ROUTE = void 0;
+var _configs = require("@/configs");
 /**************************************************************************/
 /*  FuseUtils.js                                                          */
 /**************************************************************************/
@@ -19,117 +26,132 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import { CHANGE_STORE, HASH_MODAL, INAPP_NOTIFICATION_EMITTER } from '@/configs';
-
 class EventEmitter {
-
-    constructor() {
-        this.events = {};
+  constructor() {
+    this.events = {};
+  }
+  _getEventListByName(eventName) {
+    if (typeof this.events[eventName] === 'undefined') {
+      this.events[eventName] = new Set();
     }
-
-    _getEventListByName(eventName) {
-        if (typeof this.events[eventName] === 'undefined') {
-            this.events[eventName] = new Set();
-        }
-        return this.events[eventName]
+    return this.events[eventName];
+  }
+  on(eventName, fn) {
+    this._getEventListByName(eventName).add(fn);
+  }
+  once(eventName, fn) {
+    const self = this;
+    const onceFn = function () {
+      self.removeListener(eventName, onceFn);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      fn.apply(self, args);
+    };
+    this.on(eventName, onceFn);
+  }
+  emit(eventName) {
+    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      args[_key2 - 1] = arguments[_key2];
     }
-
-    on(eventName, fn) {
-        this._getEventListByName(eventName).add(fn);
-    }
-
-    once(eventName, fn) {
-        const self = this;
-        const onceFn = function (...args) {
-            self.removeListener(eventName, onceFn);
-            fn.apply(self, args);
-        };
-        this.on(eventName, onceFn);
-    }
-
-    emit(eventName, ...args) {
-        this._getEventListByName(eventName).forEach(function (fn) {
-            fn.apply(this, args);
-        }.bind(this));
-    }
-
-    addEventListener(eventName, fn) {
-        this.on(eventName, fn)
-    }
-
-    removeListener(eventName, fn) {
-        this._getEventListByName(eventName).delete(fn);
-    }
+    this._getEventListByName(eventName).forEach(function (fn) {
+      fn.apply(this, args);
+    }.bind(this));
+  }
+  addEventListener(eventName, fn) {
+    this.on(eventName, fn);
+  }
+  removeListener(eventName, fn) {
+    this._getEventListByName(eventName).delete(fn);
+  }
 }
-
 class FuseUtils {
-
-    static EventEmitter = EventEmitter;
-    static hasPermission(authArr, enabled) {
-        if (authArr === '*') {
-            return true;
-        } else if ((authArr || '') === '') {
-            return true;
-        } else if (authArr.length === 0) {
-            return true;
-        }
-        return enabled;
+  static EventEmitter = (() => EventEmitter)();
+  static hasPermission(authArr, enabled) {
+    if (authArr === '*') {
+      return true;
+    } else if ((authArr || '') === '') {
+      return true;
+    } else if (authArr.length === 0) {
+      return true;
     }
-
-    static generateRoutesFromConfigs(configs, defaultAuth) {
-        let allRoutes = [];
-        configs.forEach((config) => {
-            allRoutes = [
-                ...allRoutes,
-                ...this.setRoutes(config, defaultAuth)
-            ]
-        });
-        return allRoutes;
-    }
-
-    static setRoutes(config, defaultAuth) {
-        let routes = [...config.routes];
-        if (config.settings || config.auth) {
-            routes = routes.map((route) => {
-                let auth = config.auth ? [...config.auth] : defaultAuth || null;
-                auth = route.auth ? [...auth, ...route.auth] : auth;
-                return {
-                    ...route,
-                    settings: { ...config.settings, ...route.settings },
-                    auth
-                };
-            });
-        }
-        return [...routes];
-    }
-}
-
-class AppEvent extends EventEmitter {
-    normalSuccess(content, title = null) {
-        this.emit(INAPP_NOTIFICATION_EMITTER, { type: 'success', content, title });
-    }
-    normalInfo(content, title = null) {
-        this.emit(INAPP_NOTIFICATION_EMITTER, { type: 'info', content, title });
-    }
-    normalError(content, title = null) {
-        this.emit(INAPP_NOTIFICATION_EMITTER, { type: 'error', content, title });
-    }
-    modal(content, type) {
-        this.emit(INAPP_NOTIFICATION_EMITTER, { type, content, cate: 'modal' });
-    }
-    changeStore(data) {
-        this.emit(CHANGE_STORE, data);
-    }
-    openDrawer = (route, { title, ...rest }) => this.emit(HASH_MODAL, {
-        hash: route,
-        title,
-        data: rest
+    return enabled;
+  }
+  static generateRoutesFromConfigs(configs, defaultAuth) {
+    let allRoutes = [];
+    configs.forEach(config => {
+      allRoutes = [...allRoutes, ...this.setRoutes(config, defaultAuth)];
     });
+    return allRoutes;
+  }
+  static setRoutes(config, defaultAuth) {
+    let routes = [...config.routes];
+    if (config.settings || config.auth) {
+      routes = routes.map(route => {
+        let auth = config.auth ? [...config.auth] : defaultAuth || null;
+        auth = route.auth ? [...auth, ...route.auth] : auth;
+        return {
+          ...route,
+          settings: {
+            ...config.settings,
+            ...route.settings
+          },
+          auth
+        };
+      });
+    }
+    return [...routes];
+  }
 }
-
-export const DRAWER_ROUTE = {
-    CONTRACT_FORM: 'CONTRACT_FORM'
+class AppEvent extends EventEmitter {
+  normalSuccess(content) {
+    let title = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    this.emit(_configs.INAPP_NOTIFICATION_EMITTER, {
+      type: 'success',
+      content,
+      title
+    });
+  }
+  normalInfo(content) {
+    let title = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    this.emit(_configs.INAPP_NOTIFICATION_EMITTER, {
+      type: 'info',
+      content,
+      title
+    });
+  }
+  normalError(content) {
+    let title = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    this.emit(_configs.INAPP_NOTIFICATION_EMITTER, {
+      type: 'error',
+      content,
+      title
+    });
+  }
+  modal(content, type) {
+    this.emit(_configs.INAPP_NOTIFICATION_EMITTER, {
+      type,
+      content,
+      cate: 'modal'
+    });
+  }
+  changeStore(data) {
+    this.emit(_configs.CHANGE_STORE, data);
+  }
+  openDrawer = (route, _ref) => {
+    let {
+      title,
+      ...rest
+    } = _ref;
+    return this.emit(_configs.HASH_MODAL, {
+      hash: route,
+      title,
+      data: rest
+    });
+  };
 }
-
-export const InAppEvent = new AppEvent();
-export default FuseUtils;
+const DRAWER_ROUTE = exports.DRAWER_ROUTE = {
+  CONTRACT_FORM: 'CONTRACT_FORM'
+};
+const InAppEvent = exports.InAppEvent = new AppEvent();
+var _default = exports.default = FuseUtils;

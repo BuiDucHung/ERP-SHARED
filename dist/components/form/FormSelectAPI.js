@@ -15,8 +15,29 @@ var _MyHooks = require("../../hooks/MyHooks");
 var _icons = require("@ant-design/icons");
 var _configs = require("@/configs");
 var _dataUtils = require("../../utils/dataUtils");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); } /**************************************************************************/ /*  FormSelectAPI.js                                                      */ /**************************************************************************/ /*                       Tệp này là một phần của:                         */ /*                             Open CDP                                   */ /*                        https://flast.vn                                */ /**************************************************************************/ /* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */ /* (xem AUTHORS.md).                                                      */ /* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */ /*                                                                        */ /* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */ /* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */ /*                                                                        */ /* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */ /* các bản sao.                                                           */ /*                                                                        */ /* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */ /* có trách nghiệm                                                        */ /**************************************************************************/
+/**************************************************************************/
+/*  FormSelectAPI.js                                                      */
+/**************************************************************************/
+/*                       Tệp này là một phần của:                         */
+/*                             Open CDP                                   */
+/*                        https://flast.vn                                */
+/**************************************************************************/
+/* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */
+/* (xem AUTHORS.md).                                                      */
+/* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */
+/*                                                                        */
+/* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */
+/* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */
+/*                                                                        */
+/* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */
+/* các bản sao.                                                           */
+/*                                                                        */
+/* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */
+/* có trách nghiệm                                                        */
+/**************************************************************************/
+
 const {
   Option
 } = _antd.Select;
@@ -103,14 +124,15 @@ const FormSelectAPI = _ref => {
     t
   } = (0, _reactI18next.useTranslation)();
   const optionLoading = (0, _react.useMemo)(() => {
-    return /*#__PURE__*/React.createElement(Option, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(Option, {
       className: "loading-select-option",
       disabled: true,
       value: "loadingTracking",
-      key: "loading"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "loading-select"
-    }, /*#__PURE__*/React.createElement(_antd.Spin, null)));
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "loading-select",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Spin, {})
+      })
+    }, "loading");
   }, []);
   const addItem = (0, _react.useCallback)(async () => {
     /* Open Modal Create Data */
@@ -152,52 +174,60 @@ const FormSelectAPI = _ref => {
     const findItem = resourceData?.find(item => (0, _lodash.get)(item, valueProp) === value);
     onChangeGetSelectedItem(value, findItem);
   };
-  return /*#__PURE__*/React.createElement(_antd.Form.Item, _extends({
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Form.Item, {
     label: t(label),
     name: name,
     rules: [{
       required,
       message: t(messageRequire)
     }, ...rules],
-    initialValue: initialValue
-  }, formItemProps), /*#__PURE__*/React.createElement(_antd.Select, _extends({
-    placeholder: t(placeholder),
-    filterOption: false,
-    popupMatchSelectWidth: isLimitWidth,
-    dropdownRender: menu => /*#__PURE__*/React.createElement(React.Fragment, null, menu, /*#__PURE__*/React.createElement(_antd.Divider, {
-      style: {
-        margin: '8px 0'
-      }
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        padding: "0 8px 4px",
-        display: "flex",
-        alignItems: "end"
-      }
-    }, !isShowModalCreateNewItem && /*#__PURE__*/React.createElement(_antd.Input, {
-      style: {
-        width: '100%'
-      },
-      placeholder: "Add new item",
-      value: value,
-      onChange: handleValueInput,
-      onKeyDown: e => e.stopPropagation()
-    }), /*#__PURE__*/React.createElement(_antd.Button, {
-      type: "text",
-      icon: /*#__PURE__*/React.createElement(_icons.PlusOutlined, null),
-      onClick: addItem,
-      color: "primary",
-      variant: "dashed",
-      style: {
-        marginLeft: 20
-      }
-    }, "Add item"))),
-    options: resourceData?.map(item => ({
-      label: formatText(titleProp ? (0, _lodash.get)(item, titleProp) : item, item),
-      value: formatValue(valueProp ? (0, _lodash.get)(item, valueProp) : item, item)
-    })),
-    onSearch: (0, _debounce.default)(onSearch, 600),
-    onChange: handleChange
-  }, props), loading && optionLoading));
+    initialValue: initialValue,
+    ...formItemProps,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Select, {
+      placeholder: t(placeholder),
+      filterOption: false,
+      popupMatchSelectWidth: isLimitWidth,
+      dropdownRender: menu => /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [menu, /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Divider, {
+          style: {
+            margin: '8px 0'
+          }
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+          style: {
+            padding: "0 8px 4px",
+            display: "flex",
+            alignItems: "end"
+          },
+          children: [!isShowModalCreateNewItem && /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Input, {
+            style: {
+              width: '100%'
+            },
+            placeholder: "Add new item",
+            value: value,
+            onChange: handleValueInput,
+            onKeyDown: e => e.stopPropagation()
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+            type: "text",
+            icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.PlusOutlined, {}),
+            onClick: addItem,
+            color: "primary",
+            variant: "dashed",
+            style: {
+              marginLeft: 20
+            },
+            children: "Add item"
+          })]
+        })]
+      }),
+      options: resourceData?.map(item => ({
+        label: formatText(titleProp ? (0, _lodash.get)(item, titleProp) : item, item),
+        value: formatValue(valueProp ? (0, _lodash.get)(item, valueProp) : item, item)
+      })),
+      onSearch: (0, _debounce.default)(onSearch, 600),
+      onChange: handleChange,
+      ...props,
+      children: loading && optionLoading
+    })
+  });
 };
 var _default = exports.default = FormSelectAPI;

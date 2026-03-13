@@ -7,8 +7,29 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _antd = require("antd");
 var _reactI18next = require("react-i18next");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); } /**************************************************************************/ /*  FormCascader.js                                                       */ /**************************************************************************/ /*                       Tệp này là một phần của:                         */ /*                             Open CDP                                   */ /*                        https://flast.vn                                */ /**************************************************************************/ /* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */ /* (xem AUTHORS.md).                                                      */ /* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */ /*                                                                        */ /* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */ /* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */ /*                                                                        */ /* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */ /* các bản sao.                                                           */ /*                                                                        */ /* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */ /* có trách nghiệm                                                        */ /**************************************************************************/
+/**************************************************************************/
+/*  FormCascader.js                                                       */
+/**************************************************************************/
+/*                       Tệp này là một phần của:                         */
+/*                             Open CDP                                   */
+/*                        https://flast.vn                                */
+/**************************************************************************/
+/* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */
+/* (xem AUTHORS.md).                                                      */
+/* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */
+/*                                                                        */
+/* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */
+/* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */
+/*                                                                        */
+/* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */
+/* các bản sao.                                                           */
+/*                                                                        */
+/* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */
+/* có trách nghiệm                                                        */
+/**************************************************************************/
+
 const {
   SHOW_CHILD
 } = _antd.Cascader;
@@ -30,23 +51,26 @@ const FormCascader = _ref => {
   const onChange = value => {
     console.log(value);
   };
-  return /*#__PURE__*/_react.default.createElement(_antd.Form.Item, _extends({
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Form.Item, {
     label: t(label),
     name: name,
     rules: [{
       required,
       message: t(messageRequire)
     }, ...rules],
-    initialValue: initialValue
-  }, formItemProps), /*#__PURE__*/_react.default.createElement(_antd.Cascader, _extends({
-    style: {
-      width: '100%'
-    },
-    options: resourcesData,
-    onChange: onChange,
-    multiple: true,
-    maxTagCount: "responsive",
-    showCheckedStrategy: SHOW_CHILD
-  }, props)));
+    initialValue: initialValue,
+    ...formItemProps,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Cascader, {
+      style: {
+        width: '100%'
+      },
+      options: resourcesData,
+      onChange: onChange,
+      multiple: true,
+      maxTagCount: "responsive",
+      showCheckedStrategy: SHOW_CHILD,
+      ...props
+    })
+  });
 };
 var _default = exports.default = FormCascader;

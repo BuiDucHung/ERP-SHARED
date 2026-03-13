@@ -1,3 +1,12 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.validateRegex = exports.getPasswordRules = exports.getConfirmPasswordRules = void 0;
+var _i18next = _interopRequireDefault(require("i18next"));
+var _jsxRuntime = require("react/jsx-runtime");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  validateUtils.js                                                      */
 /**************************************************************************/
@@ -19,9 +28,7 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import i18next from 'i18next';
-
-export const validateRegex = {
+const validateRegex = exports.validateRegex = {
   phone: /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g,
   password: /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*\d).{6,}$/g,
   username: /^([a-z0-9A-Z_-]{3,100})$/g,
@@ -33,23 +40,27 @@ export const validateRegex = {
   customerName: /\S+/,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 };
-
-export const getPasswordRules = () => [
-  {
-    pattern: validateRegex.password,
-    message: i18next.t('input.password.validateMsg.pattern'),
-  },
-];
-
-export const getConfirmPasswordRules = (name = 'password') => [
-  ({ getFieldValue }) => ({
-    validator(_, value) {
-      if (!value || getFieldValue(name) === value) {
-        return Promise.resolve();
+const getPasswordRules = () => [{
+  pattern: validateRegex.password,
+  message: _i18next.default.t('input.password.validateMsg.pattern')
+}];
+exports.getPasswordRules = getPasswordRules;
+const getConfirmPasswordRules = function () {
+  let name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'password';
+  return [_ref => {
+    let {
+      getFieldValue
+    } = _ref;
+    return {
+      validator(_, value) {
+        if (!value || getFieldValue(name) === value) {
+          return Promise.resolve();
+        }
+        return Promise.reject(/*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          children: `${_i18next.default.t('input.confirmNewPassword.validateMsg.match')}`
+        }));
       }
-      return Promise.reject(
-        <p>{`${i18next.t('input.confirmNewPassword.validateMsg.match')}`}</p>,
-      );
-    },
-  }),
-];
+    };
+  }];
+};
+exports.getConfirmPasswordRules = getConfirmPasswordRules;

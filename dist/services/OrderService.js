@@ -1,3 +1,13 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getWarehouseByProduct = exports.default = void 0;
+var _configs = require("@/configs");
+var _dataUtils = require("@/shared/utils/dataUtils");
+var _RequestUtils = _interopRequireDefault(require("@/shared/utils/RequestUtils"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  OrderService.js                                                       */
 /**************************************************************************/
@@ -19,13 +29,9 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import { SUCCESS_CODE } from "@/configs";
-import { arrayEmpty } from "@/shared/utils/dataUtils";
-import RequestUtils from "@/shared/utils/RequestUtils";
-
-export const getWarehouseByProduct = (skuId, mProduct) => {
-  if (arrayEmpty(mProduct?.warehouses)) {
-    return []
+const getWarehouseByProduct = (skuId, mProduct) => {
+  if ((0, _dataUtils.arrayEmpty)(mProduct?.warehouses)) {
+    return [];
   }
   let warehouseOptions = [];
   for (let warehouse of mProduct.warehouses) {
@@ -34,70 +40,98 @@ export const getWarehouseByProduct = (skuId, mProduct) => {
     }
   }
   return warehouseOptions;
-}
-
+};
+exports.getWarehouseByProduct = getWarehouseByProduct;
 const OrderService = {
   allStatus: [],
   allService: [],
   getListOrderName() {
-    return [
-      { name: "Bán lẻ", color: "rgb(0, 176, 216)" },
-      { name: "Dịch vụ", color: "rgb(55, 95, 206)" },
-      { name: "Sản xuất", color: "rgb(242, 111, 33)" }
-    ]
+    return [{
+      name: "Bán lẻ",
+      color: "rgb(0, 176, 216)"
+    }, {
+      name: "Dịch vụ",
+      color: "rgb(55, 95, 206)"
+    }, {
+      name: "Sản xuất",
+      color: "rgb(242, 111, 33)"
+    }];
   },
   empty() {
     this.allStatus = [];
   },
   async fetchStatus() {
-    if(arrayEmpty(this.allStatus)) {
-      this.allStatus = await RequestUtils.GetAsList("/order-status/fetch");
+    if ((0, _dataUtils.arrayEmpty)(this.allStatus)) {
+      this.allStatus = await _RequestUtils.default.GetAsList("/order-status/fetch");
     }
     return this.allStatus;
   },
   async fetchService() {
-    if(arrayEmpty(this.allService)) {
-      this.allService = await RequestUtils.GetAsList("/service/list");
+    if ((0, _dataUtils.arrayEmpty)(this.allService)) {
+      this.allService = await _RequestUtils.default.GetAsList("/service/list");
     }
     return this.allService;
   },
   async viewInTable(response) {
-    if (arrayEmpty(response.embedded)) {
+    if ((0, _dataUtils.arrayEmpty)(response.embedded)) {
       return response;
     }
-
     const listStatus = await this.fetchStatus();
-    const getColorMeta = (item) => {
+    const getColorMeta = item => {
       return listStatus.find(i => i.id === item.status) ?? {};
-    }
-
+    };
     for (let item of response.embedded) {
-      const { details } = item;
-      item.products = details.map((detail, id) => ({ id: id + 1, name: detail.productName }));
-      item.detailstatus = details.map((detail, id) => ({ ...getColorMeta(detail), id: id + 1 }));
+      const {
+        details
+      } = item;
+      item.products = details.map((detail, id) => ({
+        id: id + 1,
+        name: detail.productName
+      }));
+      item.detailstatus = details.map((detail, id) => ({
+        ...getColorMeta(detail),
+        id: id + 1
+      }));
       delete item.details;
     }
-    return { embedded: response.embedded, page: response.page };
+    return {
+      embedded: response.embedded,
+      page: response.page
+    };
   },
   async getOrderOnEdit(orderId) {
-    let response = { customer: null, order: null, data: [] };
+    let response = {
+      customer: null,
+      order: null,
+      data: []
+    };
     if (!orderId) {
       return response;
     }
-    let { data, errorCode } = await RequestUtils.Get("/order/view-on-edit", { orderId });
-    if (errorCode !== SUCCESS_CODE || arrayEmpty(data.data)) {
+    let {
+      data,
+      errorCode
+    } = await _RequestUtils.default.Get("/order/view-on-edit", {
+      orderId
+    });
+    if (errorCode !== _configs.SUCCESS_CODE || (0, _dataUtils.arrayEmpty)(data.data)) {
       return response;
     }
     let details = data.data;
     const pIds = details.map(i => i.productId).join(",");
-    const { data: products, errorCode: eCode } = await RequestUtils.Get("/product/fetch", { ids: pIds });
-    if (eCode !== SUCCESS_CODE || arrayEmpty(products.embedded)) {
+    const {
+      data: products,
+      errorCode: eCode
+    } = await _RequestUtils.default.Get("/product/fetch", {
+      ids: pIds
+    });
+    if (eCode !== _configs.SUCCESS_CODE || (0, _dataUtils.arrayEmpty)(products.embedded)) {
       return response;
     }
     for (let detail of details) {
       let mProduct = (products.embedded ?? []).find(item => item.id === detail.productId);
       detail.warehouseOptions = getWarehouseByProduct(detail.skuId, mProduct);
-      if (arrayEmpty(detail.warehouseOptions)) {
+      if ((0, _dataUtils.arrayEmpty)(detail.warehouseOptions)) {
         continue;
       }
       let [warehouse] = detail.warehouseOptions;
@@ -112,6 +146,5 @@ const OrderService = {
   statusColor(sId) {
     return this.allStatus.find(i => i.id === sId)?.color ?? 'black';
   }
-}
-
-export default OrderService;
+};
+var _default = exports.default = OrderService;

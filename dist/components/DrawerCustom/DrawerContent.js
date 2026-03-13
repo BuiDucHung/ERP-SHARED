@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _Header = _interopRequireDefault(require("./Header"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  DrawerContent.js                                                      */
@@ -33,14 +34,16 @@ const DrawerContent = _ref => {
     onClose,
     children
   } = _ref;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "drawer-content-wrapper"
-  }, title && /*#__PURE__*/React.createElement(_Header.default, {
-    onClose: onClose,
-    title: title
-  }), /*#__PURE__*/React.createElement("div", {
-    id: "drawer-content",
-    className: "drawer-content"
-  }, children));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    className: "drawer-content-wrapper",
+    children: [title && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Header.default, {
+      onClose: onClose,
+      title: title
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      id: "drawer-content",
+      className: "drawer-content",
+      children: children
+    })]
+  });
 };
 var _default = exports.default = DrawerContent;

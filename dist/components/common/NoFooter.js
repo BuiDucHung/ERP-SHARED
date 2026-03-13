@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.NoFooter = void 0;
+var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  NoFooter.js                                                      */
 /**************************************************************************/
@@ -25,5 +26,5 @@ exports.NoFooter = void 0;
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-const NoFooter = () => /*#__PURE__*/React.createElement("span", null);
+const NoFooter = () => /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {});
 exports.NoFooter = NoFooter;

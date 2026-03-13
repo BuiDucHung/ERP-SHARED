@@ -1,3 +1,11 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.parserInputNumber = exports.onSearch = exports.isPositiveInteger = exports.getStaticImageUrl = exports.getQueryParamsFromUrl = exports.formatterInputNumber = exports.formatPhoneNumber = exports.convertObjToSearchStr = exports.calPriceOff = void 0;
+var _configs = require("@/configs");
+var _lodash = require("lodash");
 /**************************************************************************/
 /*  tools.js                                                              */
 /**************************************************************************/
@@ -19,10 +27,7 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import { GATEWAY } from '@/configs';
-import { pickBy, identity } from 'lodash'
-
-export const getQueryParamsFromUrl = (url) => {
+const getQueryParamsFromUrl = url => {
   if (!url) {
     return {};
   }
@@ -36,39 +41,34 @@ export const getQueryParamsFromUrl = (url) => {
   });
   return result;
 };
-
-export const convertObjToSearchStr = (params) => {
+exports.getQueryParamsFromUrl = getQueryParamsFromUrl;
+const convertObjToSearchStr = params => {
   /* removes undefined, "", 0, null, ... */
-  const newParams = pickBy(params, identity);
+  const newParams = (0, _lodash.pickBy)(params, _lodash.identity);
   delete newParams.resource;
   return new URLSearchParams(newParams).toString();
 };
-
-export const onSearch = (data, inputValue) =>
-  !!inputValue && data?.toLowerCase()?.search(inputValue?.toLowerCase()) !== -1;
-
-export const getStaticImageUrl = (image) => {
+exports.convertObjToSearchStr = convertObjToSearchStr;
+const onSearch = (data, inputValue) => !!inputValue && data?.toLowerCase()?.search(inputValue?.toLowerCase()) !== -1;
+exports.onSearch = onSearch;
+const getStaticImageUrl = image => {
   if (!image) {
-    return `${GATEWAY}/uploads/image-default.png`;
+    return `${_configs.GATEWAY}/uploads/image-default.png`;
   }
   if (image.startsWith('http')) {
     return image;
   }
-
   const path = image.startsWith('/uploads') ? image : "/uploads/".concat(image);
-  return String(GATEWAY).concat(path);
+  return String(_configs.GATEWAY).concat(path);
 };
-
-export const formatterInputNumber = (value) =>
-  `${value}`
-    .replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-    .replace(/\.(?=\d{0,2}$)/g, ',');
-
-export const parserInputNumber = (value) => {
+exports.getStaticImageUrl = getStaticImageUrl;
+const formatterInputNumber = value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.').replace(/\.(?=\d{0,2}$)/g, ',');
+exports.formatterInputNumber = formatterInputNumber;
+const parserInputNumber = value => {
   return value ? value.replace(/\$\s?|(\.*)/g, '').replace(/(,{1})/g, '.') : '';
 };
-
-export const formatPhoneNumber = (phone) => {
+exports.parserInputNumber = parserInputNumber;
+const formatPhoneNumber = phone => {
   if (!phone) {
     return '';
   }
@@ -78,20 +78,24 @@ export const formatPhoneNumber = (phone) => {
     return `(${match[1]}) ${match[2]}-${match[3]}`;
   }
   return phone;
-}
-
-export const calPriceOff = ({ discountValue, discountUnit, total }) => {
+};
+exports.formatPhoneNumber = formatPhoneNumber;
+const calPriceOff = _ref => {
+  let {
+    discountValue,
+    discountUnit,
+    total
+  } = _ref;
   if (!discountValue || !discountUnit) {
     return 0;
   }
   if (discountUnit === "money") {
     return discountValue;
   }
-  return (discountValue * total) / 100;
+  return discountValue * total / 100;
 };
-
-export const isPositiveInteger = (value) => {
-  return typeof value === 'number' 
-    && Number.isInteger(value) 
-    && value > 0;
+exports.calPriceOff = calPriceOff;
+const isPositiveInteger = value => {
+  return typeof value === 'number' && Number.isInteger(value) && value > 0;
 };
+exports.isPositiveInteger = isPositiveInteger;

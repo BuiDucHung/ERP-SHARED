@@ -7,6 +7,7 @@ exports.default = void 0;
 var _react = require("react");
 var _antd = require("antd");
 var _icons = require("@ant-design/icons");
+var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  FileUploadView.js                                                     */
 /**************************************************************************/
@@ -52,19 +53,22 @@ const FileUploadView = _ref => {
       window.open(file, '_blank');
     }
   };
-  return [...multiPaths, ...files].map((file, key) => /*#__PURE__*/React.createElement(_antd.Col, {
+  return [...multiPaths, ...files].map((file, key) => /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Col, {
     span: 8,
-    key: key
-  }, /*#__PURE__*/React.createElement(_antd.Tag, {
-    color: "#108ee9",
-    icon: /*#__PURE__*/React.createElement(_antd.Popconfirm, {
-      title: "B\u1EA1n c\xF3 ch\u1EAFc mu\u1ED1n x\xF3a File n\xE0y ?",
-      onConfirm: () => onDelete(file),
-      okText: "Yes",
-      cancelText: "No"
-    }, /*#__PURE__*/React.createElement(_icons.DeleteOutlined, null))
-  }, /*#__PURE__*/React.createElement("span", {
-    onClick: () => onClick(file)
-  }, file.split("/").filter(Boolean).pop()))));
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Tag, {
+      color: "#108ee9",
+      icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Popconfirm, {
+        title: "B\u1EA1n c\xF3 ch\u1EAFc mu\u1ED1n x\xF3a File n\xE0y ?",
+        onConfirm: () => onDelete(file),
+        okText: "Yes",
+        cancelText: "No",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.DeleteOutlined, {})
+      }),
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+        onClick: () => onClick(file),
+        children: file.split("/").filter(Boolean).pop()
+      })
+    })
+  }, key));
 };
 var _default = exports.default = FileUploadView;

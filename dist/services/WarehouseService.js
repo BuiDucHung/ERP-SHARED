@@ -1,3 +1,11 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _RequestUtils = _interopRequireWildcard(require("@/shared/utils/RequestUtils"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 /**************************************************************************/
 /*  WarehouseService.js                                                   */
 /**************************************************************************/
@@ -19,20 +27,24 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import RequestUtils, { SUCCESS_CODE } from "@/shared/utils/RequestUtils";
-
 const WarehouseService = {
   allStatus: [],
   empty() {
     this.allStatus = [];
   },
-  async fetch(filter = {}) {
-    const { data, errorCode } = await RequestUtils.Get("/warehouse/fetch", filter);
-    if (errorCode !== SUCCESS_CODE) {
-      return { embedded: [], page: {} };
+  async fetch() {
+    let filter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    const {
+      data,
+      errorCode
+    } = await _RequestUtils.default.Get("/warehouse/fetch", filter);
+    if (errorCode !== _RequestUtils.SUCCESS_CODE) {
+      return {
+        embedded: [],
+        page: {}
+      };
     }
     return data;
   }
-}
-
-export default WarehouseService;
+};
+var _default = exports.default = WarehouseService;

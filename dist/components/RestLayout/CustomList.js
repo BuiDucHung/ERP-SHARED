@@ -9,6 +9,7 @@ var _antd = require("antd");
 var _CustomButton = _interopRequireDefault(require("../CustomButton"));
 var _useGetList = _interopRequireDefault(require("../../hooks/useGetList"));
 var _dataUtils = require("../../utils/dataUtils");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CustomList = _ref => {
   let {
@@ -55,49 +56,52 @@ const CustomList = _ref => {
     form.resetFields();
     form.submit();
   };
-  return /*#__PURE__*/React.createElement("div", {
-    id: "content-list"
-  }, /*#__PURE__*/React.createElement(_antd.Form, {
-    onFinish: handleFilterChange,
-    form: form
-  }, filter, /*#__PURE__*/React.createElement(_antd.Space, {
-    align: "end"
-  }, /*#__PURE__*/React.createElement(_CustomButton.default, {
-    title: "T\xECm ki\u1EBFm",
-    htmlType: "submit"
-  }), /*#__PURE__*/React.createElement(_CustomButton.default, {
-    title: "X\xF3a l\u1ECDc",
-    variant: "dashed",
-    onClick: resetFilter
-  }), hasCreate && /*#__PURE__*/React.createElement(_CustomButton.default, {
-    title: "Th\xEAm m\u1EDBi",
-    color: "primary",
-    variant: "solid",
-    onClick: onClickCreate
-  }))), /*#__PURE__*/React.createElement(_antd.List, {
-    style: {
-      marginTop: 20
-    },
-    grid: {
-      gutter: 16,
-      xs: 1,
-      sm: 2,
-      md: 3,
-      lg: 3,
-      xl: 4,
-      xxl: 4,
-      ...grid
-    },
-    dataSource: embedded,
-    renderItem: renderItem,
-    loading: loading,
-    pagination: {
-      current: filterFormValues?.page || 1,
-      total: page?.totalElements || 0,
-      pageSize: 10,
-      onChange: handlePageChange,
-      showSizeChanger: false
-    }
-  }));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    id: "content-list",
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Form, {
+      onFinish: handleFilterChange,
+      form: form,
+      children: [filter, /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Space, {
+        align: "end",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_CustomButton.default, {
+          title: "T\xECm ki\u1EBFm",
+          htmlType: "submit"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_CustomButton.default, {
+          title: "X\xF3a l\u1ECDc",
+          variant: "dashed",
+          onClick: resetFilter
+        }), hasCreate && /*#__PURE__*/(0, _jsxRuntime.jsx)(_CustomButton.default, {
+          title: "Th\xEAm m\u1EDBi",
+          color: "primary",
+          variant: "solid",
+          onClick: onClickCreate
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.List, {
+      style: {
+        marginTop: 20
+      },
+      grid: {
+        gutter: 16,
+        xs: 1,
+        sm: 2,
+        md: 3,
+        lg: 3,
+        xl: 4,
+        xxl: 4,
+        ...grid
+      },
+      dataSource: embedded,
+      renderItem: renderItem,
+      loading: loading,
+      pagination: {
+        current: filterFormValues?.page || 1,
+        total: page?.totalElements || 0,
+        pageSize: 10,
+        onChange: handlePageChange,
+        showSizeChanger: false
+      }
+    })]
+  });
 };
 var _default = exports.default = CustomList;

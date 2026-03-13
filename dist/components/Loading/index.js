@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _antd = require("antd");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  index.js                                                              */
@@ -29,19 +30,21 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 /**************************************************************************/
 
 const Loading = () => {
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     style: {
       display: 'flex',
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center'
-    }
-  }, /*#__PURE__*/_react.default.createElement(_antd.Space, {
-    size: "middle"
-  }, /*#__PURE__*/_react.default.createElement(_antd.Spin, {
-    size: "small"
-  }), /*#__PURE__*/_react.default.createElement(_antd.Spin, null), /*#__PURE__*/_react.default.createElement(_antd.Spin, {
-    size: "large"
-  })));
+    },
+    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Space, {
+      size: "middle",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Spin, {
+        size: "small"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Spin, {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Spin, {
+        size: "large"
+      })]
+    })
+  });
 };
 var _default = exports.default = Loading;

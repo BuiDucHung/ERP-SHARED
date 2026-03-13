@@ -7,6 +7,7 @@ exports.default = void 0;
 var _antd = require("antd");
 var _FormContextCustom = require("../context/FormContextCustom");
 var _react = require("react");
+var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  RestEditModal.js                                                      */
 /**************************************************************************/
@@ -51,16 +52,18 @@ const RestEditModal = _ref => {
     onSubmit(formatOnSubmit(datas));
     /* eslint-disable-next-line */
   }, [record, onSubmit]);
-  return /*#__PURE__*/React.createElement(_antd.Form, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Form, {
     form: form,
     layout: "vertical",
-    onFinish: onFinish
-  }, /*#__PURE__*/React.createElement(_FormContextCustom.FormContextCustom.Provider, {
-    value: {
-      form,
-      record,
-      updateRecord
-    }
-  }, children));
+    onFinish: onFinish,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_FormContextCustom.FormContextCustom.Provider, {
+      value: {
+        form,
+        record,
+        updateRecord
+      },
+      children: children
+    })
+  });
 };
 var _default = exports.default = RestEditModal;

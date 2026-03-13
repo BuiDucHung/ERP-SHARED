@@ -9,6 +9,7 @@ var _antd = require("antd");
 var _icons = require("@ant-design/icons");
 var _reactRouterDom = require("react-router-dom");
 var _styles = _interopRequireDefault(require("./styles"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  UserWrapper.js                                                        */
@@ -45,22 +46,29 @@ const UserWrapper = _ref => {
   const {
     t
   } = (0, _reactI18next.useTranslation)();
-  const element = /*#__PURE__*/React.createElement("div", {
-    className: "user-info-wrapper"
-  }, /*#__PURE__*/React.createElement(_antd.Avatar, {
-    size: size,
-    src: item?.[avatarProp],
-    icon: /*#__PURE__*/React.createElement(_icons.UserOutlined, null)
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "user-content"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "user-name ellipsis-2-t"
-  }, item?.[nameProp] || t('error.waitingUpdate')), /*#__PURE__*/React.createElement("div", {
-    className: "user-note"
-  }, noteProp ? item?.[noteProp] : customNote)));
-  return /*#__PURE__*/React.createElement(_styles.default, null, !path || disabled ? element : /*#__PURE__*/React.createElement(_reactRouterDom.Link, {
-    className: "link-default",
-    to: path
-  }, element));
+  const element = /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    className: "user-info-wrapper",
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Avatar, {
+      size: size,
+      src: item?.[avatarProp],
+      icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.UserOutlined, {})
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: "user-content",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "user-name ellipsis-2-t",
+        children: item?.[nameProp] || t('error.waitingUpdate')
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "user-note",
+        children: noteProp ? item?.[noteProp] : customNote
+      })]
+    })]
+  });
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_styles.default, {
+    children: !path || disabled ? element : /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+      className: "link-default",
+      to: path,
+      children: element
+    })
+  });
 };
 var _default = exports.default = UserWrapper;

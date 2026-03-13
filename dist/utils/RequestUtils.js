@@ -1,3 +1,12 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.SUCCESS_CODE = void 0;
+var _configs = require("@/configs");
+var _axios = _interopRequireDefault(require("axios"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  RequestUtils.js                                                       */
 /**************************************************************************/
@@ -19,69 +28,71 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import { GATE_EVN, GATEWAY } from '@/configs';
-import axios from 'axios';
-
 class RequestUtils {
-
-	static encodeQueryData(data) {
-		if (!data) {
-			return '';
-		}
-		const ret = [];
-		for (let d in data) {
-			if (!data[d]) {
-				continue;
-			}
-			ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
-		}
-		return ret.length > 0 ? ('?' + ret.join('&')) : '';
-	}
-
-	static generateUrlGetParams(enpoint, params = {}) {
-		return String(enpoint).concat(this.encodeQueryData(params));
-	}
-
-	static httpRequest(input, service, method = 'GET', params = '') {
-		const urlDomainApi = ['/context-type/fetch', '/enterprice/fetch?limit=10', '/enterprice/create', '/context-type/create', '/context-type/update', '/context/fetch']
-		const _uri = urlDomainApi.includes(service) ? GATE_EVN.configAi + service : GATEWAY + service;
-		let getOrPost;
-		if (method === 'GET') {
-			getOrPost = axios.get(_uri + this.encodeQueryData(input));
-		} else {
-			getOrPost = axios.post(_uri + this.encodeQueryData(params), input);
-		}
-		return getOrPost.then(({ data }) => {
-			return data;
-		}).catch((response) => {
-			return response;
-		});
-	}
-
-	static Get(service, input = {}) {
-		return this.httpRequest(input, service, 'GET');
-	}
-
-	static async GetAsList(service, input = {}) {
-		let { data, errorCode } = await this.httpRequest(input, service, 'GET');
-		return errorCode === 200 ? data : [];
-	}
-
-	static Post(service, input = {}, params = {}) {
-		return this.httpRequest(input, service, 'POST', params);
-	}
-
-	static getJsonFromUrl(url) {
-		if (!url) return {};
-		var query = url.substr(1);
-		var result = {};
-		query.split("&").forEach(function (part) {
-			var item = part.split("=");
-			result[item[0]] = decodeURIComponent(item[1]);
-		});
-		return result;
-	}
+  static encodeQueryData(data) {
+    if (!data) {
+      return '';
+    }
+    const ret = [];
+    for (let d in data) {
+      if (!data[d]) {
+        continue;
+      }
+      ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+    }
+    return ret.length > 0 ? '?' + ret.join('&') : '';
+  }
+  static generateUrlGetParams(enpoint) {
+    let params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return String(enpoint).concat(this.encodeQueryData(params));
+  }
+  static httpRequest(input, service) {
+    let method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
+    let params = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+    const urlDomainApi = ['/context-type/fetch', '/enterprice/fetch?limit=10', '/enterprice/create', '/context-type/create', '/context-type/update', '/context/fetch'];
+    const _uri = urlDomainApi.includes(service) ? _configs.GATE_EVN.configAi + service : _configs.GATEWAY + service;
+    let getOrPost;
+    if (method === 'GET') {
+      getOrPost = _axios.default.get(_uri + this.encodeQueryData(input));
+    } else {
+      getOrPost = _axios.default.post(_uri + this.encodeQueryData(params), input);
+    }
+    return getOrPost.then(_ref => {
+      let {
+        data
+      } = _ref;
+      return data;
+    }).catch(response => {
+      return response;
+    });
+  }
+  static Get(service) {
+    let input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return this.httpRequest(input, service, 'GET');
+  }
+  static async GetAsList(service) {
+    let input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    let {
+      data,
+      errorCode
+    } = await this.httpRequest(input, service, 'GET');
+    return errorCode === 200 ? data : [];
+  }
+  static Post(service) {
+    let input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    let params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    return this.httpRequest(input, service, 'POST', params);
+  }
+  static getJsonFromUrl(url) {
+    if (!url) return {};
+    var query = url.substr(1);
+    var result = {};
+    query.split("&").forEach(function (part) {
+      var item = part.split("=");
+      result[item[0]] = decodeURIComponent(item[1]);
+    });
+    return result;
+  }
 }
-
-export const SUCCESS_CODE = 200;
-export default RequestUtils;
+const SUCCESS_CODE = exports.SUCCESS_CODE = 200;
+var _default = exports.default = RequestUtils;

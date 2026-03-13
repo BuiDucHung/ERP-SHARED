@@ -6,7 +6,28 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _antd = require("antd");
 var _reactI18next = require("react-i18next");
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); } /**************************************************************************/ /*  FormTextArea.js                                                       */ /**************************************************************************/ /*                       Tệp này là một phần của:                         */ /*                             Open CDP                                   */ /*                        https://flast.vn                                */ /**************************************************************************/ /* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */ /* (xem AUTHORS.md).                                                      */ /* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */ /*                                                                        */ /* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */ /* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */ /*                                                                        */ /* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */ /* các bản sao.                                                           */ /*                                                                        */ /* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */ /* có trách nghiệm                                                        */ /**************************************************************************/
+var _jsxRuntime = require("react/jsx-runtime");
+/**************************************************************************/
+/*  FormTextArea.js                                                       */
+/**************************************************************************/
+/*                       Tệp này là một phần của:                         */
+/*                             Open CDP                                   */
+/*                        https://flast.vn                                */
+/**************************************************************************/
+/* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */
+/* (xem AUTHORS.md).                                                      */
+/* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */
+/*                                                                        */
+/* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */
+/* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */
+/*                                                                        */
+/* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */
+/* các bản sao.                                                           */
+/*                                                                        */
+/* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */
+/* có trách nghiệm                                                        */
+/**************************************************************************/
+
 const {
   TextArea
 } = _antd.Input;
@@ -24,9 +45,11 @@ const FormTextArea = _ref => {
   const {
     t
   } = (0, _reactI18next.useTranslation)();
-  return /*#__PURE__*/React.createElement(_antd.Form.Item, _extends({}, formItemProps, label && {
-    label: t(label)
-  }, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Form.Item, {
+    ...formItemProps,
+    ...(label && {
+      label: t(label)
+    }),
     name: name,
     rules: [{
       required,
@@ -34,9 +57,13 @@ const FormTextArea = _ref => {
     }, {
       whitespace: true,
       message: t('error.empty')
-    }, ...rules]
-  }), /*#__PURE__*/React.createElement(TextArea, _extends({}, props, placeholder && {
-    placeholder: t(placeholder)
-  })));
+    }, ...rules],
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(TextArea, {
+      ...props,
+      ...(placeholder && {
+        placeholder: t(placeholder)
+      })
+    })
+  });
 };
 var _default = exports.default = FormTextArea;

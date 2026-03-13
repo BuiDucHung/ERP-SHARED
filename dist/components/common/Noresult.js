@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const StyledNotFound = _styledComponents.default.div`
   display: flex;
@@ -42,11 +43,18 @@ const NotFoundPage = _ref => {
   let {
     message
   } = _ref;
-  return /*#__PURE__*/_react.default.createElement(StyledNotFound, null, /*#__PURE__*/_react.default.createElement(NotFoundImage, {
-    src: "/img/404.png",
-    alt: "404 Image"
-  }), /*#__PURE__*/_react.default.createElement(NotFoundSubtitle, null, "Y\xEAu c\u1EA7u kh\xF4ng t\xECm th\u1EA5y"), /*#__PURE__*/_react.default.createElement(NotFoundDescription, null, message || 'Trang yêu cầu không tìm thấy. Vui lòng tìm kiếm lại.'), /*#__PURE__*/_react.default.createElement(BackHomeButton, {
-    href: "/"
-  }, "V\u1EC1 trang ch\u1EE7"));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(StyledNotFound, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(NotFoundImage, {
+      src: "/img/404.png",
+      alt: "404 Image"
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(NotFoundSubtitle, {
+      children: "Y\xEAu c\u1EA7u kh\xF4ng t\xECm th\u1EA5y"
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(NotFoundDescription, {
+      children: message || 'Trang yêu cầu không tìm thấy. Vui lòng tìm kiếm lại.'
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(BackHomeButton, {
+      href: "/",
+      children: "V\u1EC1 trang ch\u1EE7"
+    })]
+  });
 };
 var _default = exports.default = NotFoundPage;

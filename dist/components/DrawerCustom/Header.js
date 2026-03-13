@@ -7,6 +7,7 @@ exports.default = void 0;
 var _icons = require("@ant-design/icons");
 var _reactI18next = require("react-i18next");
 var _styles = require("./styles");
+var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  Header.js                                                             */
 /**************************************************************************/
@@ -36,12 +37,15 @@ const Header = _ref => {
   const {
     t
   } = (0, _reactI18next.useTranslation)();
-  return /*#__PURE__*/React.createElement(_styles.HeaderStyles, null, /*#__PURE__*/React.createElement("div", {
-    className: "drawer-header-title"
-  }, t(title)), /*#__PURE__*/React.createElement(_icons.CloseSquareOutlined, {
-    onClick: onClose,
-    className: "drawer-header-icon",
-    type: "close-square"
-  }));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_styles.HeaderStyles, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      className: "drawer-header-title",
+      children: t(title)
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.CloseSquareOutlined, {
+      onClick: onClose,
+      className: "drawer-header-icon",
+      type: "close-square"
+    })]
+  });
 };
 var _default = exports.default = Header;

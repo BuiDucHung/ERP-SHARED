@@ -1,3 +1,15 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.splitFile = exports.isImageFile = exports.getFileNameFromUrl = exports.getFileName = exports.getExtensionFile = exports.downloadFileByURL = exports.checkValidFileSize = exports.checkFileType = void 0;
+var _localData = require("@/configs/localData");
+var _antd = require("antd");
+var _i18next = _interopRequireDefault(require("i18next"));
+var _constant = require("@/configs/constant");
+var _axios = _interopRequireDefault(require("axios"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  fileUtils.js                                                          */
 /**************************************************************************/
@@ -19,65 +31,63 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import { IMAGE_TYPES } from '@/configs/localData';
-import { notification, Upload } from 'antd';
-import i18next from 'i18next';
-import { MAX_FILE_SIZE_MB } from '@/configs/constant';
-import axios from 'axios';
-
-const showErrorDownloadFile = (message) => {
-  notification.error({
-    message: i18next.t('error.title'),
-    description: message || i18next.t('error.errorDownloadFile'),
+const showErrorDownloadFile = message => {
+  _antd.notification.error({
+    message: _i18next.default.t('error.title'),
+    description: message || _i18next.default.t('error.errorDownloadFile'),
     duration: 2
   });
 };
-
-export const isImageFile = (fileName) => {
+const isImageFile = fileName => {
   const extension = getExtensionFile(fileName);
   if (!extension) return false;
-  return IMAGE_TYPES.includes(extension.toLocaleLowerCase());
+  return _localData.IMAGE_TYPES.includes(extension.toLocaleLowerCase());
 };
-
-export const getFileNameFromUrl = (url) => url?.split('/')?.pop();
-export const checkFileType = (file) => {
-  if (!file.type?.trim()) {
-
-  }
+exports.isImageFile = isImageFile;
+const getFileNameFromUrl = url => url?.split('/')?.pop();
+exports.getFileNameFromUrl = getFileNameFromUrl;
+const checkFileType = file => {
+  if (!file.type?.trim()) {}
   return true;
 };
-
-export const getExtensionFile = (fileName) => {
+exports.checkFileType = checkFileType;
+const getExtensionFile = fileName => {
   if (typeof fileName !== 'string' || fileName.indexOf('.') === -1) return '';
   return fileName.split('.').pop();
 };
-
-export const checkValidFileSize = (file, placeholder) => {
-  const isCheckSize = Number(file.size) / 1024 / 1024 < MAX_FILE_SIZE_MB;
+exports.getExtensionFile = getExtensionFile;
+const checkValidFileSize = (file, placeholder) => {
+  const isCheckSize = Number(file.size) / 1024 / 1024 < _constant.MAX_FILE_SIZE_MB;
   if (!isCheckSize) {
-    notification.error({
-      message: i18next.t('error.title'),
-      description: i18next.t('error.fileSize', {
-        name: i18next.t(placeholder),
+    _antd.notification.error({
+      message: _i18next.default.t('error.title'),
+      description: _i18next.default.t('error.fileSize', {
+        name: _i18next.default.t(placeholder)
       }),
-      duration: 2,
+      duration: 2
     });
-    return Upload.LIST_IGNORE;
+    return _antd.Upload.LIST_IGNORE;
   }
   return true;
 };
-
-export const downloadFileByURL = async (file) => {
+exports.checkValidFileSize = checkValidFileSize;
+const downloadFileByURL = async file => {
   return new Promise(resolve => {
     if (!file?.url) {
       showErrorDownloadFile();
-      resolve({ loading: false });
+      resolve({
+        loading: false
+      });
     }
     try {
-      axios.get(file.url, { responseType: 'blob' }).then(response => {
+      _axios.default.get(file.url, {
+        responseType: 'blob'
+      }).then(response => {
         const blob = response.data;
         if (!blob) {
-          resolve({ loading: false });
+          resolve({
+            loading: false
+          });
         }
         const disposition = response.headers['content-disposition'];
         const restFileName = file.fileName || getFileNameFromUrl(file.url) || 'example';
@@ -87,21 +97,28 @@ export const downloadFileByURL = async (file) => {
         a.download = restFileName;
         a.click();
         window.URL.revokeObjectURL(url);
-        resolve({ loading: false });
+        resolve({
+          loading: false
+        });
       });
     } catch (error) {
       showErrorDownloadFile(error?.message);
-      resolve({ loading: false });
+      resolve({
+        loading: false
+      });
     }
   });
 };
-
-export const getFileName = (file) =>
-  file.split('/').pop()?.split('-')?.splice(1).join('-');
-
-export const splitFile = (url) => {
+exports.downloadFileByURL = downloadFileByURL;
+const getFileName = file => file.split('/').pop()?.split('-')?.splice(1).join('-');
+exports.getFileName = getFileName;
+const splitFile = url => {
   const splitUrl = url.split('.');
   const fileType = splitUrl.pop();
   const fileName = splitUrl.join('.');
-  return { fileType, fileName };
+  return {
+    fileType,
+    fileName
+  };
 };
+exports.splitFile = splitFile;

@@ -1,3 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.formatSorterTable = exports.formatFiltersTable = void 0;
+var _forEach = _interopRequireDefault(require("lodash/forEach"));
+var _last = _interopRequireDefault(require("lodash/last"));
+var _head = _interopRequireDefault(require("lodash/head"));
+var _constant = require("@/configs/constant");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  formatFilters.js                                                      */
 /**************************************************************************/
@@ -19,38 +30,34 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import forEach from 'lodash/forEach';
-import last from 'lodash/last';
-import head from 'lodash/head';
-import { QUERY_PARAMS_PROPERTY } from '@/configs/constant';
-
-export const formatFiltersTable = (filters) => {
+const formatFiltersTable = filters => {
   const outsideFilter = {};
   const restFilters = {};
-  forEach(filters, (value, key) => {
+  (0, _forEach.default)(filters, (value, key) => {
     const splitArr = key.split('.');
-    const operator = last(splitArr) || 'eq';
-    if (head(splitArr) === QUERY_PARAMS_PROPERTY.outsideFilter) {
+    const operator = (0, _last.default)(splitArr) || 'eq';
+    if ((0, _head.default)(splitArr) === _constant.QUERY_PARAMS_PROPERTY.outsideFilter) {
       outsideFilter[splitArr.slice(1).join('.')] = value?.[0] || undefined;
     } else {
       restFilters[splitArr.slice(0, -1).join('.') || key] = {
-        [operator]: value ? String(value) : undefined,
+        [operator]: value ? String(value) : undefined
       };
     }
   });
-  return { outsideFilter, filters: restFilters };
+  return {
+    outsideFilter,
+    filters: restFilters
+  };
 };
-
-const formatSorter = (sorter) => {
-  return sorter && sorter.field && sorter.order
-    ? `${sorter.field}:${sorter.order === 'descend' ? 'DESC' : 'ASC'}:NULLS_LAST`
-    : undefined;
+exports.formatFiltersTable = formatFiltersTable;
+const formatSorter = sorter => {
+  return sorter && sorter.field && sorter.order ? `${sorter.field}:${sorter.order === 'descend' ? 'DESC' : 'ASC'}:NULLS_LAST` : undefined;
 };
-
-export const formatSorterTable = (sorter) => {
+const formatSorterTable = sorter => {
   if (Array.isArray(sorter)) {
     return sorter.map(item => formatSorter(item)).join(',');
   } else {
     return formatSorter(sorter);
   }
 };
+exports.formatSorterTable = formatSorterTable;

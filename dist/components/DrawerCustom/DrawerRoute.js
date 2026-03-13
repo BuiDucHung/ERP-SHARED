@@ -5,7 +5,28 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _styles = require("./styles");
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); } /**************************************************************************/ /*  DrawerRoute.js                                                        */ /**************************************************************************/ /*                       Tệp này là một phần của:                         */ /*                             Open CDP                                   */ /*                        https://flast.vn                                */ /**************************************************************************/ /* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */ /* (xem AUTHORS.md).                                                      */ /* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */ /*                                                                        */ /* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */ /* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */ /*                                                                        */ /* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */ /* các bản sao.                                                           */ /*                                                                        */ /* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */ /* có trách nghiệm                                                        */ /**************************************************************************/
+var _jsxRuntime = require("react/jsx-runtime");
+/**************************************************************************/
+/*  DrawerRoute.js                                                        */
+/**************************************************************************/
+/*                       Tệp này là một phần của:                         */
+/*                             Open CDP                                   */
+/*                        https://flast.vn                                */
+/**************************************************************************/
+/* Bản quyền (c) 2025 - này thuộc về các cộng tác viên Flast Solution     */
+/* (xem AUTHORS.md).                                                      */
+/* Bản quyền (c) 2024-2025 Long Huu, Quang Duc, Hung Bui                  */
+/*                                                                        */
+/* Bạn được quyền sử dụng phần mềm này miễn phí cho bất kỳ mục đích nào,  */
+/* bao gồm sao chép, sửa đổi, phân phối, bán lại…                         */
+/*                                                                        */
+/* Chỉ cần giữ nguyên thông tin bản quyền và nội dung giấy phép này trong */
+/* các bản sao.                                                           */
+/*                                                                        */
+/* Đội ngũ phát triển mong rằng phần mềm được sử dụng đúng mục đích và    */
+/* có trách nghiệm                                                        */
+/**************************************************************************/
+
 const DrawerRoute = _ref => {
   let {
     width = 600,
@@ -14,18 +35,19 @@ const DrawerRoute = _ref => {
     title,
     ...props
   } = _ref;
-  return /*#__PURE__*/React.createElement(_styles.DrawerWrapper, _extends({
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_styles.DrawerWrapper, {
     width: width,
     onClose: onClose,
     styles: {
       wrapper: {
         maxWidth: '100vw'
       }
-    }
-  }, props, {
+    },
+    ...props,
     destroyOnClose: true,
     closable: false,
-    footer: null
-  }), children);
+    footer: null,
+    children: children
+  });
 };
 var _default = exports.default = DrawerRoute;

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _icons = require("@ant-design/icons");
 var _CustomButton = _interopRequireDefault(require("../../CustomButton"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  index.js                                                              */
@@ -33,10 +34,10 @@ const CreateButton = _ref => {
     title = 'button.create',
     handleClick
   } = _ref;
-  return /*#__PURE__*/React.createElement(_CustomButton.default, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_CustomButton.default, {
     title: title,
     onClick: handleClick,
-    icon: /*#__PURE__*/React.createElement(_icons.PlusOutlined, null),
+    icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.PlusOutlined, {}),
     type: "primary"
   });
 };

@@ -8,6 +8,7 @@ var _react = require("react");
 var _joditReact = _interopRequireDefault(require("jodit-react"));
 var _MyHooks = require("../../hooks/MyHooks");
 var _FormContextCustom = require("../context/FormContextCustom");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const FormJoditEditor = /*#__PURE__*/(0, _react.forwardRef)((_ref, ref) => {
   let {
@@ -55,7 +56,7 @@ const FormJoditEditor = /*#__PURE__*/(0, _react.forwardRef)((_ref, ref) => {
   (0, _MyHooks.useEffectAsync)(() => {
     setEditorValue(initContent);
   }, [initContent]);
-  return /*#__PURE__*/React.createElement(_joditReact.default, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_joditReact.default, {
     value: editorValue,
     config: config,
     onChange: handleChange,

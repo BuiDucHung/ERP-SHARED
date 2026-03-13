@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _antd = require("antd");
 var _react = require("react");
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var _jsxRuntime = require("react/jsx-runtime");
 const CustomImage = _ref => {
   let {
     src,
@@ -19,9 +19,10 @@ const CustomImage = _ref => {
       setImgSrc(fallbackSrc);
     }
   };
-  return /*#__PURE__*/React.createElement(_antd.Image, _extends({
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Image, {
     src: imgSrc,
-    onError: handleError
-  }, props));
+    onError: handleError,
+    ...props
+  });
 };
 var _default = exports.default = CustomImage;

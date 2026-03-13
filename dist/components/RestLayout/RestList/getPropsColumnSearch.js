@@ -7,6 +7,7 @@ exports.getColumnSearchProps = void 0;
 var _icons = require("@ant-design/icons");
 var _antd = require("antd");
 var _i18next = _interopRequireDefault(require("i18next"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  getColumnSearchProps.js                                               */
@@ -38,46 +39,51 @@ const getColumnSearchProps = (dataIndex, dataLabel) => ({
       confirm,
       clearFilters
     } = _ref;
-    return /*#__PURE__*/React.createElement("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       style: {
         padding: 8
-      }
-    }, /*#__PURE__*/React.createElement(_antd.Input, {
-      placeholder: `Search ${dataLabel ?? dataIndex}`,
-      ref: node => {
-        searchInput[dataIndex] = node;
       },
-      value: selectedKeys[0],
-      onChange: e => setSelectedKeys(e.target.value ? [e.target.value] : []),
-      onPressEnter: () => confirm({
-        closeDropdown: true
-      }),
-      style: {
-        marginBottom: 8,
-        display: 'block'
-      }
-    }), /*#__PURE__*/React.createElement(_antd.Space, null, /*#__PURE__*/React.createElement(_antd.Button, {
-      type: "primary",
-      onClick: () => confirm({
-        closeDropdown: true
-      }),
-      icon: /*#__PURE__*/React.createElement(_icons.SearchOutlined, null),
-      size: "small",
-      style: {
-        width: 90
-      }
-    }, _i18next.default.t('button.search')), /*#__PURE__*/React.createElement(_antd.Button, {
-      onClick: e => {
-        setSelectedKeys([]);
-        clearFilters(e);
-      },
-      size: "small",
-      style: {
-        width: 90
-      }
-    }, _i18next.default.t('button.reset'))));
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Input, {
+        placeholder: `Search ${dataLabel ?? dataIndex}`,
+        ref: node => {
+          searchInput[dataIndex] = node;
+        },
+        value: selectedKeys[0],
+        onChange: e => setSelectedKeys(e.target.value ? [e.target.value] : []),
+        onPressEnter: () => confirm({
+          closeDropdown: true
+        }),
+        style: {
+          marginBottom: 8,
+          display: 'block'
+        }
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Space, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+          type: "primary",
+          onClick: () => confirm({
+            closeDropdown: true
+          }),
+          icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.SearchOutlined, {}),
+          size: "small",
+          style: {
+            width: 90
+          },
+          children: _i18next.default.t('button.search')
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+          onClick: e => {
+            setSelectedKeys([]);
+            clearFilters(e);
+          },
+          size: "small",
+          style: {
+            width: 90
+          },
+          children: _i18next.default.t('button.reset')
+        })]
+      })]
+    });
   },
-  filterIcon: filtered => /*#__PURE__*/React.createElement(_icons.SearchOutlined, {
+  filterIcon: filtered => /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.SearchOutlined, {
     className: `${filtered ? 'text-primary' : ''}`
   }),
   onFilterDropdownVisibleChange: visible => {

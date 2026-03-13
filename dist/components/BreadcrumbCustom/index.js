@@ -8,6 +8,7 @@ var _reactI18next = require("react-i18next");
 var _antd = require("antd");
 var _reactRouterDom = require("react-router-dom");
 var _styles = require("./styles");
+var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  index.js                                                              */
 /**************************************************************************/
@@ -36,17 +37,23 @@ const BreadcrumbCustom = _ref => {
   const {
     t
   } = (0, _reactI18next.useTranslation)();
-  return /*#__PURE__*/React.createElement(_styles.BreadcrumbWrapper, null, /*#__PURE__*/React.createElement(_antd.Breadcrumb, {
-    separator: ">"
-  }, data.map((data, index) => /*#__PURE__*/React.createElement(_antd.Breadcrumb.Item, {
-    key: String(index)
-  }, data.path ? /*#__PURE__*/React.createElement(_reactRouterDom.Link, {
-    to: data.path
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "breadcrumb-item__name breadcrumb-item__link"
-  }, t(data.title))) : /*#__PURE__*/React.createElement("span", {
-    className: "breadcrumb-item__name"
-  }, data.title ? t(data.title) : t('error.waitingUpdate'))))));
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_styles.BreadcrumbWrapper, {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Breadcrumb, {
+      separator: ">",
+      children: data.map((data, index) => /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Breadcrumb.Item, {
+        children: data.path ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+          to: data.path,
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+            className: "breadcrumb-item__name breadcrumb-item__link",
+            children: t(data.title)
+          })
+        }) : /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+          className: "breadcrumb-item__name",
+          children: data.title ? t(data.title) : t('error.waitingUpdate')
+        })
+      }, String(index)))
+    })
+  });
 };
 BreadcrumbCustom.propTypes = {};
 var _default = exports.default = BreadcrumbCustom;

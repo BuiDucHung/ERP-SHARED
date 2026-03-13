@@ -1,3 +1,13 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _configs = require("@/configs");
+var _dataUtils = require("@/shared/utils/dataUtils");
+var _RequestUtils = _interopRequireDefault(require("@/shared/utils/RequestUtils"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  UserService.js                                                        */
 /**************************************************************************/
@@ -19,25 +29,29 @@
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-import { SUCCESS_CODE } from "@/configs";
-import { arrayEmpty } from "@/shared/utils/dataUtils";
-import RequestUtils from "@/shared/utils/RequestUtils";
-
 const UserService = {
   async findId(id) {
-    const { data, errorCode, message } = await RequestUtils.Get("/user/find-id", { id });
-    if (errorCode === SUCCESS_CODE) {
+    const {
+      data,
+      errorCode,
+      message
+    } = await _RequestUtils.default.Get("/user/find-id", {
+      id
+    });
+    if (errorCode === _configs.SUCCESS_CODE) {
       return [null, data];
     }
     return [message, null];
   },
-  async mapId2Name(ids = []) {
-    let users = await RequestUtils.GetAsList("/user/list-name-id", { ids });
-    if (arrayEmpty(users)) {
+  async mapId2Name() {
+    let ids = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    let users = await _RequestUtils.default.GetAsList("/user/list-name-id", {
+      ids
+    });
+    if ((0, _dataUtils.arrayEmpty)(users)) {
       return {};
     }
     return Object.fromEntries(users.map(item => [item.id, item.name]));
   }
-}
-
-export default UserService;
+};
+var _default = exports.default = UserService;

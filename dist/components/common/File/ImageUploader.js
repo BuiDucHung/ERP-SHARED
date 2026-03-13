@@ -13,6 +13,7 @@ var _RequestUtils = _interopRequireDefault(require("../../../utils/RequestUtils"
 var _configs = require("@/configs");
 var _FormContextCustom = require("../../context/FormContextCustom");
 var _CustomImage = _interopRequireDefault(require("../CustomImage"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 const ImageUploader = _ref => {
@@ -161,145 +162,172 @@ const ImageUploader = _ref => {
       URL.revokeObjectURL(image.url);
     }
   };
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     style: {
       padding: '20px 0px',
       fontFamily: 'Arial'
-    }
-  }, /*#__PURE__*/_react.default.createElement("h3", null, title), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      border: '1px solid #e8e8e8',
-      borderRadius: '4px',
-      marginBottom: '16px',
-      padding: '12px'
-    }
-  }, /*#__PURE__*/_react.default.createElement(_antd.Row, {
-    justify: "space-between",
-    align: "middle"
-  }, /*#__PURE__*/_react.default.createElement(_antd.Space, null, /*#__PURE__*/_react.default.createElement(_antd.Upload, {
-    showUploadList: false,
-    beforeUpload: () => false,
-    onChange: handleFileChange
-  }, /*#__PURE__*/_react.default.createElement(_antd.Button, {
-    type: "primary",
-    style: {
-      backgroundColor: '#52c41a',
-      borderColor: '#52c41a'
-    }
-  }, "Th\xEAm \u1EA3nh...")), /*#__PURE__*/_react.default.createElement(_antd.Button, {
-    type: "default",
-    style: {
-      backgroundColor: '#f5a623',
-      borderColor: '#f5a623',
-      color: 'white'
-    }
-  }, "H\u1EE7y")), /*#__PURE__*/_react.default.createElement(_antd.Button, {
-    type: "primary",
-    style: {
-      backgroundColor: '#4096ff',
-      borderColor: '#4096ff'
     },
-    onClick: handleAddByUrl
-  }, "Th\xEAm Url"))), showUrlInput && /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      border: '1px solid #e8e8e8',
-      borderRadius: '4px',
-      marginBottom: '16px',
-      padding: '12px'
-    }
-  }, /*#__PURE__*/_react.default.createElement(_antd.Input, {
-    placeholder: "Nh\u1EADp URL h\xECnh \u1EA3nh...",
-    value: urlInputValue,
-    onChange: e => setUrlInputValue(e.target.value),
-    onPressEnter: handleUrlSubmit,
-    style: {
-      marginBottom: '8px'
-    }
-  }), /*#__PURE__*/_react.default.createElement(_antd.Space, null, /*#__PURE__*/_react.default.createElement(_antd.Button, {
-    type: "primary",
-    onClick: handleUrlSubmit
-  }, "X\xE1c nh\u1EADn"), /*#__PURE__*/_react.default.createElement(_antd.Button, {
-    type: "default",
-    onClick: () => setShowUrlInput(false)
-  }, "H\u1EE7y"))), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      border: '1px solid #e8e8e8',
-      borderRadius: '4px'
-    }
-  }, /*#__PURE__*/_react.default.createElement(_antd.List, {
-    dataSource: images,
-    renderItem: item => /*#__PURE__*/_react.default.createElement(_antd.List.Item, {
-      key: item.id,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
+      children: title
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       style: {
         border: '1px solid #e8e8e8',
-        borderBottom: 'none',
-        padding: '12px',
-        display: 'flex',
-        alignItems: 'center'
-      }
-    }, /*#__PURE__*/_react.default.createElement(_antd.Col, {
-      span: 4
-    }, /*#__PURE__*/_react.default.createElement(_CustomImage.default, {
-      preview: false,
-      src: item.url,
-      alt: item.name,
-      width: imageSize,
-      height: imageSize,
-      style: {
-        objectFit: 'cover',
-        borderRadius: '4px'
-      }
-    })), /*#__PURE__*/_react.default.createElement(_antd.Col, {
-      span: 12,
-      style: {
-        paddingLeft: '16px',
-        overflow: 'hidden'
-      }
-    }, /*#__PURE__*/_react.default.createElement("div", {
-      style: {
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        maxWidth: '100%'
-      }
-    }, item.name), /*#__PURE__*/_react.default.createElement("div", {
-      style: {
-        marginTop: '8px'
-      }
-    }, /*#__PURE__*/_react.default.createElement(_antd.Checkbox, {
-      checked: item.isFeatured,
-      onChange: e => handleToggleFeatured(item.id),
-      style: {
-        marginRight: '16px'
-      }
-    }, "Ch\u1ECDn l\xE0m \u1EA3nh \u0111\u1EA1i di\u1EC7n"), showImgSlide && /*#__PURE__*/_react.default.createElement(_antd.Checkbox, {
-      checked: item.isSlideshow,
-      onChange: e => handleToggleSlide(item.id, e.target.checked)
-    }, "Ch\u1ECDn l\xE0m \u1EA3nh slide"))), /*#__PURE__*/_react.default.createElement(_antd.Col, {
-      span: 8,
-      style: {
-        textAlign: 'right'
-      }
-    }, /*#__PURE__*/_react.default.createElement(_antd.Space, null, item.fromUpload && /*#__PURE__*/_react.default.createElement(_antd.Button, {
-      icon: /*#__PURE__*/_react.default.createElement(_icons.UploadOutlined, null),
-      type: "primary",
-      size: "small",
-      style: {
-        backgroundColor: '#1890ff',
-        borderColor: '#1890ff'
+        borderRadius: '4px',
+        marginBottom: '16px',
+        padding: '12px'
       },
-      onClick: () => handleUpload(item.id)
-    }, "T\u1EA3i l\xEAn"), (0, _tools.isPositiveInteger)(item.id) && /*#__PURE__*/_react.default.createElement(_antd.Button, {
-      icon: /*#__PURE__*/_react.default.createElement(_icons.PlusOutlined, null),
-      danger: true,
-      size: "small",
-      onClick: () => onClickAddImageToContent(item.url)
-    }), /*#__PURE__*/_react.default.createElement(_antd.Button, {
-      icon: /*#__PURE__*/_react.default.createElement(_icons.DeleteOutlined, null),
-      danger: true,
-      size: "small",
-      onClick: () => handleRemove(item.id)
-    }))))
-  })));
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Row, {
+        justify: "space-between",
+        align: "middle",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Space, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Upload, {
+            showUploadList: false,
+            beforeUpload: () => false,
+            onChange: handleFileChange,
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+              type: "primary",
+              style: {
+                backgroundColor: '#52c41a',
+                borderColor: '#52c41a'
+              },
+              children: "Th\xEAm \u1EA3nh..."
+            })
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+            type: "default",
+            style: {
+              backgroundColor: '#f5a623',
+              borderColor: '#f5a623',
+              color: 'white'
+            },
+            children: "H\u1EE7y"
+          })]
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+          type: "primary",
+          style: {
+            backgroundColor: '#4096ff',
+            borderColor: '#4096ff'
+          },
+          onClick: handleAddByUrl,
+          children: "Th\xEAm Url"
+        })]
+      })
+    }), showUrlInput && /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: {
+        border: '1px solid #e8e8e8',
+        borderRadius: '4px',
+        marginBottom: '16px',
+        padding: '12px'
+      },
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Input, {
+        placeholder: "Nh\u1EADp URL h\xECnh \u1EA3nh...",
+        value: urlInputValue,
+        onChange: e => setUrlInputValue(e.target.value),
+        onPressEnter: handleUrlSubmit,
+        style: {
+          marginBottom: '8px'
+        }
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Space, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+          type: "primary",
+          onClick: handleUrlSubmit,
+          children: "X\xE1c nh\u1EADn"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+          type: "default",
+          onClick: () => setShowUrlInput(false),
+          children: "H\u1EE7y"
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      style: {
+        border: '1px solid #e8e8e8',
+        borderRadius: '4px'
+      },
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.List, {
+        dataSource: images,
+        renderItem: item => /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.List.Item, {
+          style: {
+            border: '1px solid #e8e8e8',
+            borderBottom: 'none',
+            padding: '12px',
+            display: 'flex',
+            alignItems: 'center'
+          },
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Col, {
+            span: 4,
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_CustomImage.default, {
+              preview: false,
+              src: item.url,
+              alt: item.name,
+              width: imageSize,
+              height: imageSize,
+              style: {
+                objectFit: 'cover',
+                borderRadius: '4px'
+              }
+            })
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Col, {
+            span: 12,
+            style: {
+              paddingLeft: '16px',
+              overflow: 'hidden'
+            },
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+              style: {
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                maxWidth: '100%'
+              },
+              children: item.name
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+              style: {
+                marginTop: '8px'
+              },
+              children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Checkbox, {
+                checked: item.isFeatured,
+                onChange: e => handleToggleFeatured(item.id),
+                style: {
+                  marginRight: '16px'
+                },
+                children: "Ch\u1ECDn l\xE0m \u1EA3nh \u0111\u1EA1i di\u1EC7n"
+              }), showImgSlide && /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Checkbox, {
+                checked: item.isSlideshow,
+                onChange: e => handleToggleSlide(item.id, e.target.checked),
+                children: "Ch\u1ECDn l\xE0m \u1EA3nh slide"
+              })]
+            })]
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Col, {
+            span: 8,
+            style: {
+              textAlign: 'right'
+            },
+            children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_antd.Space, {
+              children: [item.fromUpload && /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+                icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.UploadOutlined, {}),
+                type: "primary",
+                size: "small",
+                style: {
+                  backgroundColor: '#1890ff',
+                  borderColor: '#1890ff'
+                },
+                onClick: () => handleUpload(item.id),
+                children: "T\u1EA3i l\xEAn"
+              }), (0, _tools.isPositiveInteger)(item.id) && /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+                icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.PlusOutlined, {}),
+                danger: true,
+                size: "small",
+                onClick: () => onClickAddImageToContent(item.url)
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_antd.Button, {
+                icon: /*#__PURE__*/(0, _jsxRuntime.jsx)(_icons.DeleteOutlined, {}),
+                danger: true,
+                size: "small",
+                onClick: () => handleRemove(item.id)
+              })]
+            })
+          })]
+        }, item.id)
+      })
+    })]
+  });
 };
 var _default = exports.default = ImageUploader;

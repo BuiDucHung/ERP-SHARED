@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _ButtonIcon = _interopRequireDefault(require("./ButtonIcon"));
 var _styles = require("./styles");
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  index.js                                                              */
@@ -36,13 +37,14 @@ const CustomButtonIcon = _ref => {
     buttonProps,
     className
   } = _ref;
-  return /*#__PURE__*/React.createElement(_styles.CustomButtonIconWrapper, {
-    className: `custom-button-icon-wrapper ${className || ''}`
-  }, /*#__PURE__*/React.createElement(_ButtonIcon.default, {
-    title: title,
-    handleClick: handleClick,
-    buttonProps: buttonProps,
-    icon: icon
-  }));
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_styles.CustomButtonIconWrapper, {
+    className: `custom-button-icon-wrapper ${className || ''}`,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_ButtonIcon.default, {
+      title: title,
+      handleClick: handleClick,
+      buttonProps: buttonProps,
+      icon: icon
+    })
+  });
 };
 var _default = exports.default = CustomButtonIcon;
