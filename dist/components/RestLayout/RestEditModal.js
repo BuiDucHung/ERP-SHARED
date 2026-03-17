@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _antd = require("antd");
-var _FormContextCustom = require("../context/FormContextCustom");
+var _FormContextCustom = require("@/components/context/FormContextCustom");
 var _react = require("react");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
@@ -33,13 +33,15 @@ const RestEditModal = _ref => {
   let {
     children,
     record,
+    form: externalForm,
     isMergeRecordOnSubmit = true,
     formatOnSubmit = values => values,
     updateRecord = values => values,
     formatDefaultValues = values => values,
     onSubmit
   } = _ref;
-  const [form] = _antd.Form.useForm();
+  const [innerForm] = _antd.Form.useForm();
+  const form = externalForm || innerForm;
   (0, _react.useEffect)(() => {
     form.setFieldsValue(formatDefaultValues(record));
     /* eslint-disable-next-line */

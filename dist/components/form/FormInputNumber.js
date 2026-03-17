@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _antd = require("antd");
 var _reactI18next = require("react-i18next");
-var _tools = require("../../utils/tools");
+var _tools = require("@/utils/tools");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  FormInputNumber.js                                                    */

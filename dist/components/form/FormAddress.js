@@ -5,12 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _antd = require("antd");
-var _FormInput = _interopRequireDefault(require("./FormInput"));
-var _FormSelect = _interopRequireDefault(require("./FormSelect"));
-var _FormSelectInfiniteProvince = _interopRequireDefault(require("./SelectInfinite/FormSelectInfiniteProvince"));
-var _MyHooks = require("../../hooks/MyHooks");
+var _FormInput = _interopRequireDefault(require("@/components/form/FormInput"));
+var _FormSelect = _interopRequireDefault(require("@/components/form/FormSelect"));
+var _FormSelectInfiniteProvince = _interopRequireDefault(require("@/components/form/SelectInfinite/FormSelectInfiniteProvince"));
+var _MyHooks = require("@/hooks/MyHooks");
 var _react = _interopRequireWildcard(require("react"));
-var _RequestUtils = _interopRequireDefault(require("../../utils/RequestUtils"));
+var _RequestUtils = _interopRequireDefault(require("@/utils/RequestUtils"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }

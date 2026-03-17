@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.outerRadius = exports.UPLOAD_PATH = exports.SUCCESS_CODE = exports.REPORT_DATE_FORMAT = exports.MAX_FILE_SIZE_MB = exports.INAPP_NOTIFICATION_EMITTER = exports.HASH_MODAL_CLOSE = exports.HASH_MODAL = exports.GATE_EVN = exports.GATEWAY = exports.FORMAT_TIME_INPUT = exports.FORMAT_DATE_TIME_INPUT = exports.FORMAT_DATE_INPUT = exports.EVENT_ACCEPT_IMAGE_TYPES = exports.EMBED_YOUTUBE_LINK = exports.DEFAULT_PARENT_INBOX_ID = exports.DEFAULT_INBOX_ID = exports.DEFAULT_COLOR_VALUE = exports.CURRENCY_UNIT = exports.CHANGE_STORE = exports.API = exports.ACTIONS = void 0;
+exports.outerRadius = exports.UPLOAD_PATH = exports.SUCCESS_CODE = exports.REPORT_DATE_FORMAT = exports.MAX_FILE_SIZE_MB = exports.INAPP_NOTIFICATION_EMITTER = exports.HASH_MODAL_CLOSE = exports.HASH_MODAL = exports.GATE_EVN = exports.GATEWAY = exports.FORMAT_TIME_INPUT = exports.FORMAT_DATE_TIME_INPUT = exports.FORMAT_DATE_INPUT = exports.EVENT_ACCEPT_IMAGE_TYPES = exports.EMBED_YOUTUBE_LINK = exports.DEFAULT_PARENT_INBOX_ID = exports.DEFAULT_INBOX_ID = exports.DEFAULT_COLOR_VALUE = exports.CURRENCY_UNIT = exports.CHANGE_STORE = exports.BASE_URL = exports.API = exports.ACTIONS = void 0;
 /**************************************************************************/
 /*  index.js                                                              */
 /**************************************************************************/
@@ -27,12 +27,13 @@ exports.outerRadius = exports.UPLOAD_PATH = exports.SUCCESS_CODE = exports.REPOR
 
 const SUCCESS_CODE = exports.SUCCESS_CODE = 200;
 const GATE_EVN = exports.GATE_EVN = {
-  Loc: 'http://127.0.0.1:9775',
+  Loc: 'http://157.10.199.138:9775',
   Pro: 'https://biz.api.flast.vn',
   Web: 'https://flast-vn',
   AiA: 'https://service.aicuatui.vn'
 };
-const GATEWAY = exports.GATEWAY = GATE_EVN['Pro'];
+const GATEWAY = exports.GATEWAY = GATE_EVN['Loc'];
+const BASE_URL = exports.BASE_URL = GATEWAY;
 const CHANGE_STORE = exports.CHANGE_STORE = 'CHANGE_STORE';
 const UPLOAD_PATH = exports.UPLOAD_PATH = GATEWAY + '/uploads';
 const API = exports.API = {

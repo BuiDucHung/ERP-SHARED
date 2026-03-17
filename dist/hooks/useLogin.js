@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = require("react");
-var _RequestUtils = _interopRequireDefault(require("../utils/RequestUtils"));
-var _jwtService = _interopRequireDefault(require("../utils/jwtService"));
+var _RequestUtils = _interopRequireDefault(require("@/utils/RequestUtils"));
+var _jwtService = _interopRequireDefault(require("@/utils/jwtService"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  useLogin.js                                                           */

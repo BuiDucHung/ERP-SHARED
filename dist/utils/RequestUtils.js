@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = exports.SUCCESS_CODE = void 0;
 var _configs = require("@/configs");
 var _axios = _interopRequireDefault(require("axios"));
+var _constant = require("configs/constant");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  RequestUtils.js                                                       */
@@ -93,6 +94,46 @@ class RequestUtils {
     });
     return result;
   }
+  static uploadSigFile = _ref2 => {
+    let {
+      onSuccess,
+      onError,
+      file,
+      onProgress = progress => progress,
+      onSuccessUploadServer = values => values,
+      api
+    } = _ref2;
+    const fmData = new FormData();
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data"
+      },
+      onUploadProgress: event => {
+        onProgress({
+          percent: event.loaded / event.total * 100
+        }, file);
+      }
+    };
+    fmData.append("files", file);
+    _axios.default.post(_configs.GATEWAY + "/" + api, fmData, config).then(_ref3 => {
+      let {
+        data: ret
+      } = _ref3;
+      const {
+        data,
+        errorCode
+      } = ret;
+      onSuccess(file);
+      if (errorCode === _constant.SUCCESS_API_CODE && (data?.fileName || '') !== '') {
+        onSuccessUploadServer(data.fileName);
+      }
+    }).catch(err => {
+      const error = new Error(err.message);
+      onError({
+        event: error
+      });
+    });
+  };
 }
 const SUCCESS_CODE = exports.SUCCESS_CODE = 200;
 var _default = exports.default = RequestUtils;
