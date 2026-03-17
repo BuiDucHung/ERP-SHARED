@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getTypeGroup = exports.getStatusLead = exports.getColorStatusLead = exports.VAT_PERCENT = exports.STATUS_LEAD = exports.QUERY_PARAMS_PROPERTY = exports.MAX_FILE_SIZE_MB = exports.HASH_POPUP_CLOSE = exports.HASH_POPUP = exports.HASH_MODAL = exports.FORMAT_TIME_INPUT = exports.FORMAT_DATE_INPUT = exports.CURRENCY_UNIT = void 0;
+exports.getTypeGroup = exports.getStatusLead = exports.getColorStatusLead = exports.VAT_PERCENT = exports.SUCCESS_API_CODE = exports.STATUS_LEAD = exports.QUERY_PARAMS_PROPERTY = exports.OVERTIME_META = exports.NGHI_PHEP_STATUS_WAITING = exports.NGHI_PHEP_STATUS_TEXT = exports.NGHI_PHEP_STATUS_REJECT = exports.NGHI_PHEP_STATUS_DONE = exports.NGHI_PHEP_STATUS_CONFIRM = exports.NGHI_PHEP_META = exports.MAX_FILE_SIZE_MB = exports.HASH_POPUP_CLOSE = exports.HASH_POPUP = exports.HASH_MODAL = exports.FORMAT_TIME_INPUT = exports.FORMAT_DATE_INPUT = exports.CURRENCY_UNIT = exports.APP_STATUS_TEXT = exports.APP_FOLLOW_STATUS_WAITING = exports.APP_FOLLOW_STATUS_REJECT = exports.APP_FOLLOW_STATUS_DONE = exports.APP_FOLLOW_STATUS_CONFIRM = void 0;
 /**************************************************************************/
 /*  constant.js                                                           */
 /**************************************************************************/
@@ -98,4 +98,49 @@ const getTypeGroup = option => {
       return 'N/A';
   }
 };
+
+/**************************************************************************/
 exports.getTypeGroup = getTypeGroup;
+const SUCCESS_API_CODE = exports.SUCCESS_API_CODE = 200;
+const NGHI_PHEP_META = exports.NGHI_PHEP_META = [{
+  id: 1,
+  name: 'Nghỉ phép năm (Annual Leave)'
+}, {
+  id: 2,
+  name: 'Nghỉ không lương (Unpaid Absence)'
+}, {
+  id: 3,
+  name: 'Nghỉ theo chính sách phúc lợi của công ty (Leave According To Company Welfare Policy)'
+}, {
+  id: 4,
+  name: 'Nghỉ ốm hưởng BHXH (Sick Leave With Social Insurance)'
+}, {
+  id: 5,
+  name: 'Lý do khác (Other Reasons)'
+}];
+const OVERTIME_META = exports.OVERTIME_META = [{
+  id: 1,
+  name: 'Làm thêm giờ'
+}, {
+  id: 2,
+  name: 'Làm thêm vào ngày nghỉ'
+}];
+const NGHI_PHEP_STATUS_WAITING = exports.NGHI_PHEP_STATUS_WAITING = 0;
+const NGHI_PHEP_STATUS_CONFIRM = exports.NGHI_PHEP_STATUS_CONFIRM = 1;
+const NGHI_PHEP_STATUS_REJECT = exports.NGHI_PHEP_STATUS_REJECT = 1;
+const NGHI_PHEP_STATUS_DONE = exports.NGHI_PHEP_STATUS_DONE = 2;
+const APP_FOLLOW_STATUS_WAITING = exports.APP_FOLLOW_STATUS_WAITING = 0;
+const APP_FOLLOW_STATUS_CONFIRM = exports.APP_FOLLOW_STATUS_CONFIRM = 1;
+const APP_FOLLOW_STATUS_DONE = exports.APP_FOLLOW_STATUS_DONE = 2;
+const APP_FOLLOW_STATUS_REJECT = exports.APP_FOLLOW_STATUS_REJECT = 3;
+const NGHI_PHEP_STATUS_TEXT = exports.NGHI_PHEP_STATUS_TEXT = [{
+  id: NGHI_PHEP_STATUS_WAITING,
+  name: 'Chờ duyệt (Waiting For Approval)'
+}, {
+  id: NGHI_PHEP_STATUS_REJECT,
+  name: 'Không duyệt (Not Approved)'
+}, {
+  id: NGHI_PHEP_STATUS_DONE,
+  name: 'Duyệt (Approved)'
+}];
+const APP_STATUS_TEXT = exports.APP_STATUS_TEXT = NGHI_PHEP_STATUS_TEXT;

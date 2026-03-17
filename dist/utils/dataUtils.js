@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.dateFormatOnSubmit = exports.dateFormatForm = exports.dataAsObj = exports.dataArray = exports.calVat = exports.arrayNotEmpty = exports.arrayEmpty = void 0;
+exports.dateFormatOnSubmit = exports.dateFormatForm = exports.dataObj = exports.dataAsObj = exports.dataArray = exports.calVat = exports.arrayNotEmpty = exports.arrayEmpty = void 0;
 exports.decodeProperty = decodeProperty;
 exports.encodeProperty = encodeProperty;
 exports.string2Object = exports.formatTime = exports.formatMoney = exports.formatDataI18n = exports.f5List = void 0;
@@ -58,6 +58,14 @@ const dataArray = ret => {
   return errorCode === 200 ? data : [];
 };
 exports.dataArray = dataArray;
+const dataObj = ret => {
+  const {
+    errorCode,
+    data
+  } = ret;
+  return errorCode === 200 ? data : {};
+};
+exports.dataObj = dataObj;
 const dataAsObj = ret => {
   const {
     errorCode,

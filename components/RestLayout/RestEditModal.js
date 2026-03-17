@@ -26,6 +26,7 @@ import { useCallback, useEffect } from 'react';
 const RestEditModal = ({
   children,
   record,
+  form: externalForm,
   isMergeRecordOnSubmit = true,
   formatOnSubmit = values => values,
   updateRecord = values => values,
@@ -33,7 +34,8 @@ const RestEditModal = ({
   onSubmit
 }) => {
 
-  const [form] = Form.useForm();
+  const [innerForm] = Form.useForm();
+  const form = externalForm || innerForm;
 
   useEffect(() => {
     form.setFieldsValue(formatDefaultValues(record));

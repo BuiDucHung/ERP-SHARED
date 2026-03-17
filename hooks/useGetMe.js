@@ -21,12 +21,34 @@
 
 import { useContext } from 'react';
 import MyContext from '@/DataContext';
+import authRoles from '@/auth/authRoles';
 
 function useGetMe() {
-    const { user, setMyData } = useContext(MyContext)
+    const { user, setMyData } = useContext(MyContext);
+
+    const getUserRoles = () => {
+        if (!user) return [];
+        if (user.roles?.length) return user.roles;
+        return user.userProfiles?.map(p => p.type) ?? [];
+    };
+
+    const hasRole = (roles) => {
+        const userRoles = getUserRoles();
+        if (!userRoles.length) return false;
+        return roles.some(role => userRoles.includes(role));
+    };
+
+    const isLeader = () => hasRole([...authRoles.admin, ...authRoles.partner, ...(authRoles.leader || [])]);
+    const isManager = () => hasRole([...authRoles.admin, ...authRoles.partner, ...authRoles.provider, ...(authRoles.leader || [])]);
+    const isUser = () => !isLeader() && !isManager();
+
     return {
         user,
         setMe: (me) => setMyData(pre => ({ ...pre, user: me })),
+        isLeader,
+        isManager,
+        isUser,
+        hasRole
     };
 }
 

@@ -33,13 +33,15 @@ const RestEditModal = _ref => {
   let {
     children,
     record,
+    form: externalForm,
     isMergeRecordOnSubmit = true,
     formatOnSubmit = values => values,
     updateRecord = values => values,
     formatDefaultValues = values => values,
     onSubmit
   } = _ref;
-  const [form] = _antd.Form.useForm();
+  const [innerForm] = _antd.Form.useForm();
+  const form = externalForm || innerForm;
   (0, _react.useEffect)(() => {
     form.setFieldsValue(formatDefaultValues(record));
     /* eslint-disable-next-line */
