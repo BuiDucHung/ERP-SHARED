@@ -149,3 +149,18 @@ const calVat = _ref => {
   return (total || 0) * (vatPercent / 100);
 };
 exports.calVat = calVat;
+const string2Object = data => {
+  if (!data) {
+    return ['(empty)', null];
+  }
+  if (typeof data !== 'string') {
+    return ['(invalid)', null];
+  }
+  try {
+    let obj = JSON.parse(data);
+    return [null, obj];
+  } catch (e) {
+    return [e, null];
+  }
+};
+exports.string2Object = string2Object;
