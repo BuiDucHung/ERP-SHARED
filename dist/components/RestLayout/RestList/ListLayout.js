@@ -9,7 +9,7 @@ var _antd = require("antd");
 var _styles = _interopRequireDefault(require("./styles"));
 var _reactRouterDom = require("react-router-dom");
 var _configs = require("@/configs");
-var _CreateButton = _interopRequireDefault(require("../../RestActions/CreateButton"));
+var _CreateButton = _interopRequireDefault(require("@/components/RestActions/CreateButton"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

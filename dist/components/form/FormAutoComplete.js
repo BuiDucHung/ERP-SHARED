@@ -8,7 +8,7 @@ var _react = require("react");
 var _antd = require("antd");
 var _lodash = require("lodash");
 var _reactI18next = require("react-i18next");
-var _tools = require("../../utils/tools");
+var _tools = require("@/utils/tools");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  FormAutoComplete.js                                                   */

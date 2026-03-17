@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = require("react");
-var _RequestUtils = _interopRequireDefault(require("../utils/RequestUtils"));
+var _RequestUtils = _interopRequireDefault(require("@/utils/RequestUtils"));
 var _DataContext = _interopRequireDefault(require("@/DataContext"));
-var _MyHooks = require("./MyHooks");
+var _MyHooks = require("@/hooks/MyHooks");
 var _logger = _interopRequireDefault(require("@/logger"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
