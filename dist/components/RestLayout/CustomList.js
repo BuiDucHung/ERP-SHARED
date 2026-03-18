@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = require("react");
 var _antd = require("antd");
-var _CustomButton = _interopRequireDefault(require("@/components/CustomButton"));
-var _useGetList = _interopRequireDefault(require("@/hooks/useGetList"));
-var _dataUtils = require("@/utils/dataUtils");
+var _CustomButton = _interopRequireDefault(require("@/dist/components/CustomButton"));
+var _useGetList = _interopRequireDefault(require("@/dist/hooks/useGetList"));
+var _dataUtils = require("@/dist/utils/dataUtils");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CustomList = _ref => {

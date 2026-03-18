@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.useNavigateSearch = void 0;
 var _reactRouter = require("react-router");
-var _tools = require("@/utils/tools");
+var _tools = require("@/dist/utils/tools");
 /**************************************************************************/
 /*  useNavigateSearch.js                                                  */
 /**************************************************************************/

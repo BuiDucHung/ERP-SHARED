@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _configs = require("@/configs");
-var _dataUtils = require("@/utils/dataUtils");
-var _RequestUtils = _interopRequireDefault(require("@/utils/RequestUtils"));
+var _dataUtils = require("@/dist/utils/dataUtils");
+var _RequestUtils = _interopRequireDefault(require("@/dist/utils/RequestUtils"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  UserService.js                                                        */

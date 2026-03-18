@@ -10,7 +10,7 @@ var _reactI18next = require("react-i18next");
 var _isEmpty = _interopRequireDefault(require("lodash/isEmpty"));
 var _get = _interopRequireDefault(require("lodash/get"));
 var _icons = require("@ant-design/icons");
-var _FormContextCustom = require("@/components/context/FormContextCustom");
+var _FormContextCustom = require("@/dist/components/context/FormContextCustom");
 var _styles = _interopRequireDefault(require("./styles"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
