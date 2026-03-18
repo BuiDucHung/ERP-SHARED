@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _antd = require("antd");
-var _FormContextCustom = require("@/dist/components/context/FormContextCustom");
+var _FormContextCustom = require("@erp/shared/dist/components/context/FormContextCustom");
 var _react = require("react");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/

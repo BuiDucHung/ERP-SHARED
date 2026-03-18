@@ -9,7 +9,7 @@ exports.encodeProperty = encodeProperty;
 exports.string2Object = exports.formatTime = exports.formatMoney = exports.formatDataI18n = exports.f5List = void 0;
 var _i18next = _interopRequireDefault(require("i18next"));
 var _lodash = require("lodash");
-var _FuseUtils = require("@/dist/utils/FuseUtils");
+var _FuseUtils = require("@erp/shared/dist/utils/FuseUtils");
 var _configs = require("@/configs");
 var _moment = _interopRequireDefault(require("moment"));
 var _dayjs = _interopRequireDefault(require("dayjs"));

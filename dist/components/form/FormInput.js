@@ -7,7 +7,7 @@ exports.default = void 0;
 var _react = require("react");
 var _antd = require("antd");
 var _reactI18next = require("react-i18next");
-var _FormContextCustom = require("@/dist/components/context/FormContextCustom");
+var _FormContextCustom = require("@erp/shared/dist/components/context/FormContextCustom");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  FormInput.js                                                          */

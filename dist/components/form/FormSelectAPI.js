@@ -5,16 +5,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = require("react");
-var _RequestUtils = _interopRequireDefault(require("@/dist/utils/RequestUtils"));
+var _RequestUtils = _interopRequireDefault(require("@erp/shared/dist/utils/RequestUtils"));
 var _antd = require("antd");
 var _lodash = require("lodash");
 var _debounce = _interopRequireDefault(require("lodash/debounce"));
 var _reactI18next = require("react-i18next");
 var _DataContext = _interopRequireDefault(require("@/DataContext"));
-var _MyHooks = require("@/dist/hooks/MyHooks");
+var _MyHooks = require("@erp/shared/dist/hooks/MyHooks");
 var _icons = require("@ant-design/icons");
 var _configs = require("@/configs");
-var _dataUtils = require("@/dist/utils/dataUtils");
+var _dataUtils = require("@erp/shared/dist/utils/dataUtils");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

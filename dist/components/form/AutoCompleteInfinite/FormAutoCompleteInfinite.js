@@ -7,8 +7,8 @@ exports.default = void 0;
 var _react = require("react");
 var _debounce = _interopRequireDefault(require("lodash/debounce"));
 var _get = _interopRequireDefault(require("lodash/get"));
-var _useInfinite = _interopRequireDefault(require("@/dist/hooks/useInfinite"));
-var _FormContextCustom = require("@/dist/components/context/FormContextCustom");
+var _useInfinite = _interopRequireDefault(require("@erp/shared/dist/hooks/useInfinite"));
+var _FormContextCustom = require("@erp/shared/dist/components/context/FormContextCustom");
 var _FormAutoComplete = _interopRequireDefault(require("../FormAutoComplete"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }

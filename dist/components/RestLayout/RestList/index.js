@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
-var _tools = require("@/dist/utils/tools");
+var _tools = require("@erp/shared/dist/utils/tools");
 var _ListLayout = _interopRequireDefault(require("./ListLayout"));
 var _RestFilter = _interopRequireDefault(require("../RestFilter"));
-var _MyHooks = require("@/dist/hooks/MyHooks");
+var _MyHooks = require("@erp/shared/dist/hooks/MyHooks");
 var _lodash = require("lodash");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }

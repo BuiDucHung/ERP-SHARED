@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = require("react");
 var _FormSelect = _interopRequireDefault(require("./FormSelect"));
-var _RequestUtils = _interopRequireDefault(require("@/dist/utils/RequestUtils"));
-var _dataUtils = require("@/dist/utils/dataUtils");
-var _MyHooks = require("@/dist/hooks/MyHooks");
+var _RequestUtils = _interopRequireDefault(require("@erp/shared/dist/utils/RequestUtils"));
+var _dataUtils = require("@erp/shared/dist/utils/dataUtils");
+var _MyHooks = require("@erp/shared/dist/hooks/MyHooks");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

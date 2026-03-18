@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _tools = require("@/dist/utils/tools");
+var _tools = require("@erp/shared/dist/utils/tools");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  index.js                                                              */
