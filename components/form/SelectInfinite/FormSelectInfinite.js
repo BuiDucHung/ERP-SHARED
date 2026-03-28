@@ -7,8 +7,8 @@ exports.default = void 0;
 var _react = require("react");
 var _debounce = _interopRequireDefault(require("lodash/debounce"));
 var _get = _interopRequireDefault(require("lodash/get"));
-var _useInfinite = _interopRequireDefault(require("@erp/shared/hooks/useInfinite"));
-var _FormContextCustom = require("@erp/shared/components/context/FormContextCustom");
+var _useInfinite = _interopRequireDefault(require("@flast-erp/core/hooks/useInfinite"));
+var _FormContextCustom = require("@flast-erp/core/components/context/FormContextCustom");
 var _FormSelect = _interopRequireDefault(require("../FormSelect"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }

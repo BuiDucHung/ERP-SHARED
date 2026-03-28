@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _icons = require("@ant-design/icons");
-var _CustomButton = _interopRequireDefault(require("@erp/shared/components/CustomButton"));
+var _CustomButton = _interopRequireDefault(require("@flast-erp/core/components/CustomButton"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

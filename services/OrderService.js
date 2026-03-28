@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getWarehouseByProduct = exports.default = void 0;
 var _configs = require("@/configs");
-var _dataUtils = require("@erp/shared/utils/dataUtils");
-var _RequestUtils = _interopRequireDefault(require("@erp/shared/utils/RequestUtils"));
+var _dataUtils = require("@flast-erp/core/utils/dataUtils");
+var _RequestUtils = _interopRequireDefault(require("@flast-erp/core/utils/RequestUtils"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  OrderService.js                                                       */

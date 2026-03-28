@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = require("react");
 var _antd = require("antd");
-var _CustomButton = _interopRequireDefault(require("@erp/shared/components/CustomButton"));
-var _useGetList = _interopRequireDefault(require("@erp/shared/hooks/useGetList"));
-var _dataUtils = require("@erp/shared/utils/dataUtils");
+var _CustomButton = _interopRequireDefault(require("@flast-erp/core/components/CustomButton"));
+var _useGetList = _interopRequireDefault(require("@flast-erp/core/hooks/useGetList"));
+var _dataUtils = require("@flast-erp/core/utils/dataUtils");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CustomList = _ref => {

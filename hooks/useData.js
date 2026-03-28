@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.useGetShipStatusQuery = exports.useGetServiceQuery = exports.useGetOrderCodeQuery = exports.useGetMaterialQuery = exports.useGetCategoryPost = exports.useGetAllStockQuery = exports.useGetAllProvinceQuery = exports.useGetAllProviderQuery = exports.useGetAllProductQuery = exports.useGetAllFaq = exports.useGetAllCustomersSimpleQuery = exports.useGetAllCategoryQuery = exports.useGetAllBusinessUsersQuery = exports.default = void 0;
 var _lodash = require("lodash");
 var _react = require("react");
-var _RequestUtils = _interopRequireDefault(require("@erp/shared/utils/RequestUtils"));
+var _RequestUtils = _interopRequireDefault(require("@flast-erp/core/utils/RequestUtils"));
 var _DataContext = _interopRequireDefault(require("@/DataContext"));
-var _MyHooks = require("@erp/shared/hooks/MyHooks");
+var _MyHooks = require("@flast-erp/core/hooks/MyHooks");
 var _configs = require("@/configs");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

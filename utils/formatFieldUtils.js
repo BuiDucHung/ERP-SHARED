@@ -8,7 +8,7 @@ var _i18next = _interopRequireDefault(require("i18next"));
 var _localData = require("@/configs/localData");
 var _antd = require("antd");
 var _dataUtils = require("./dataUtils");
-var _UserInfo = _interopRequireDefault(require("@erp/shared/components/common/UserInfo"));
+var _UserInfo = _interopRequireDefault(require("@flast-erp/core/components/common/UserInfo"));
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = require("react");
 var _FormSelect = _interopRequireDefault(require("./FormSelect"));
-var _RequestUtils = _interopRequireDefault(require("@erp/shared/utils/RequestUtils"));
-var _dataUtils = require("@erp/shared/utils/dataUtils");
-var _MyHooks = require("@erp/shared/hooks/MyHooks");
+var _RequestUtils = _interopRequireDefault(require("@flast-erp/core/utils/RequestUtils"));
+var _dataUtils = require("@flast-erp/core/utils/dataUtils");
+var _MyHooks = require("@flast-erp/core/hooks/MyHooks");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/

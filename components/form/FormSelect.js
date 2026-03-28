@@ -9,7 +9,7 @@ var _antd = require("antd");
 var _lodash = require("lodash");
 var _reactWaypoint = require("react-waypoint");
 var _reactI18next = require("react-i18next");
-var _tools = require("@erp/shared/utils/tools");
+var _tools = require("@flast-erp/core/utils/tools");
 var _jsxRuntime = require("react/jsx-runtime");
 /**************************************************************************/
 /*  FormSelect.js                                                         */

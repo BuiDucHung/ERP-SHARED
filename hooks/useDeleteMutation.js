@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = require("react");
-var _FuseUtils = require("@erp/shared/utils/FuseUtils");
-var _RequestUtils = _interopRequireDefault(require("@erp/shared/utils/RequestUtils"));
+var _FuseUtils = require("@flast-erp/core/utils/FuseUtils");
+var _RequestUtils = _interopRequireDefault(require("@flast-erp/core/utils/RequestUtils"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**************************************************************************/
 /*  useDeleteMutation.js                                                  */
