@@ -25,38 +25,41 @@ exports.outerRadius = exports.UPLOAD_PATH = exports.SUCCESS_CODE = exports.REPOR
 /* có trách nghiệm                                                        */
 /**************************************************************************/
 
-const SUCCESS_CODE = exports.SUCCESS_CODE = 200;
-const GATE_EVN = exports.GATE_EVN = {
-  Loc: 'http://157.10.199.138:9775',
+export const SUCCESS_CODE = exports.SUCCESS_CODE = 200;
+export const GATE_EVN = exports.GATE_EVN = {
+  // Loc: 'http://157.10.199.138:9080/api',
+  Loc: '/api/erp',
   Pro: 'https://biz.api.flast.vn',
   Web: 'https://flast-vn',
   AiA: 'https://service.aicuatui.vn'
 };
-const GATEWAY = exports.GATEWAY = GATE_EVN['Loc'];
-const BASE_URL = exports.BASE_URL = GATEWAY;
-const CHANGE_STORE = exports.CHANGE_STORE = 'CHANGE_STORE';
-const UPLOAD_PATH = exports.UPLOAD_PATH = GATEWAY + '/uploads';
-const API = exports.API = {
+export const GATEWAY = exports.GATEWAY = GATE_EVN['Loc'];
+export const BASE_URL = exports.BASE_URL = GATEWAY;
+export const CHANGE_STORE = exports.CHANGE_STORE = 'CHANGE_STORE';
+export const UPLOAD_PATH = exports.UPLOAD_PATH = GATEWAY + '/uploads';
+
+export const API = exports.API = {
   SINGIN: '/auth/login'
 };
-const ACTIONS = exports.ACTIONS = {
+
+export const ACTIONS = exports.ACTIONS = {
   ADD_USER: 'add__user',
   REMOVE_USER: 'remove__user',
   TOOGLE_COLLAPSE: 'tg_cll',
   F5_LIST: 'f5_list'
 };
-const INAPP_NOTIFICATION_EMITTER = exports.INAPP_NOTIFICATION_EMITTER = 'in_app_noti';
-const EVENT_ACCEPT_IMAGE_TYPES = exports.EVENT_ACCEPT_IMAGE_TYPES = '.png, .jpeg, .jpg';
-const HASH_MODAL = exports.HASH_MODAL = '#modal';
-const HASH_MODAL_CLOSE = exports.HASH_MODAL_CLOSE = '#close-modal';
-const DEFAULT_INBOX_ID = exports.DEFAULT_INBOX_ID = 'inbox';
-const DEFAULT_PARENT_INBOX_ID = exports.DEFAULT_PARENT_INBOX_ID = 'parent';
-const FORMAT_DATE_INPUT = exports.FORMAT_DATE_INPUT = 'DD-MM-YYYY';
-const FORMAT_DATE_TIME_INPUT = exports.FORMAT_DATE_TIME_INPUT = 'DD-MM-YYYY HH:mm';
-const FORMAT_TIME_INPUT = exports.FORMAT_TIME_INPUT = 'HH:mm';
-const MAX_FILE_SIZE_MB = exports.MAX_FILE_SIZE_MB = 3;
-const REPORT_DATE_FORMAT = exports.REPORT_DATE_FORMAT = 'YYYY-MM-DD';
-const CURRENCY_UNIT = exports.CURRENCY_UNIT = 'VND';
-const EMBED_YOUTUBE_LINK = exports.EMBED_YOUTUBE_LINK = '//www.youtube.com/embed/';
-const DEFAULT_COLOR_VALUE = exports.DEFAULT_COLOR_VALUE = '#ffffff';
-const outerRadius = exports.outerRadius = 143 / 2;
+export const INAPP_NOTIFICATION_EMITTER = exports.INAPP_NOTIFICATION_EMITTER = 'in_app_noti';
+export const EVENT_ACCEPT_IMAGE_TYPES = exports.EVENT_ACCEPT_IMAGE_TYPES = '.png, .jpeg, .jpg';
+export const HASH_MODAL = exports.HASH_MODAL = '#modal';
+export const HASH_MODAL_CLOSE = exports.HASH_MODAL_CLOSE = '#close-modal';
+export const DEFAULT_INBOX_ID = exports.DEFAULT_INBOX_ID = 'inbox';
+export const DEFAULT_PARENT_INBOX_ID = exports.DEFAULT_PARENT_INBOX_ID = 'parent';
+export const FORMAT_DATE_INPUT = exports.FORMAT_DATE_INPUT = 'DD-MM-YYYY';
+export const FORMAT_DATE_TIME_INPUT = exports.FORMAT_DATE_TIME_INPUT = 'DD-MM-YYYY HH:mm';
+export const FORMAT_TIME_INPUT = exports.FORMAT_TIME_INPUT = 'HH:mm';
+export const MAX_FILE_SIZE_MB = exports.MAX_FILE_SIZE_MB = 3;
+export const REPORT_DATE_FORMAT = exports.REPORT_DATE_FORMAT = 'YYYY-MM-DD';
+export const CURRENCY_UNIT = exports.CURRENCY_UNIT = 'VND';
+export const EMBED_YOUTUBE_LINK = exports.EMBED_YOUTUBE_LINK = '//www.youtube.com/embed/';
+export const DEFAULT_COLOR_VALUE = exports.DEFAULT_COLOR_VALUE = '#ffffff';
+export const outerRadius = exports.outerRadius = 143 / 2;

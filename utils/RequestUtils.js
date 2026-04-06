@@ -51,7 +51,18 @@ class RequestUtils {
     let method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
     let params = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
     const urlDomainApi = ['/context-type/fetch', '/enterprice/fetch?limit=10', '/enterprice/create', '/context-type/create', '/context-type/update', '/context/fetch'];
-    const _uri = urlDomainApi.includes(service) ? _configs.GATE_EVN.configAi + service : _configs.GATEWAY + service;
+    const noErpApi = ['/auth/sign-in','/auth/sign-with-token'];
+    let baseUrl;
+
+    if (urlDomainApi.includes(service)) {
+      baseUrl = _configs.GATE_EVN.configAi;
+    } else if (noErpApi.includes(service)) {
+      baseUrl = _configs.GATE_EVN.Loc.replace('/erp', ''); 
+    } else {
+      baseUrl = _configs.GATEWAY; 
+    }
+
+    const _uri = baseUrl + service;
     let getOrPost;
     if (method === 'GET') {
       getOrPost = _axios.default.get(_uri + this.encodeQueryData(input));
