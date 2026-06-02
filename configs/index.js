@@ -27,19 +27,20 @@ exports.outerRadius = exports.UPLOAD_PATH = exports.SUCCESS_CODE = exports.REPOR
 
 export const SUCCESS_CODE = exports.SUCCESS_CODE = 200;
 export const GATE_EVN = exports.GATE_EVN = {
-  // Loc: 'http://157.10.199.138:9080/api',
-  Loc: '/api/erp',
-  Pro: 'https://biz.api.flast.vn',
-  Web: 'https://flast-vn',
-  AiA: 'https://service.aicuatui.vn'
+  Loc: process.env.API_URL || '',
+  //Loc: '/api/erp',
+  Pro: process.env.PRO_API_URL || '',
+  Web: process.env.WEB_URL || '',
+  AiA: process.env.AI_URL || ''
 };
+
 export const GATEWAY = exports.GATEWAY = GATE_EVN['Loc'];
 export const BASE_URL = exports.BASE_URL = GATEWAY;
 export const CHANGE_STORE = exports.CHANGE_STORE = 'CHANGE_STORE';
 export const UPLOAD_PATH = exports.UPLOAD_PATH = GATEWAY + '/uploads';
 
 export const API = exports.API = {
-  SINGIN: '/auth/login'
+  SINGIN: process.env.SINGIN
 };
 
 export const ACTIONS = exports.ACTIONS = {
