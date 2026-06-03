@@ -42,8 +42,8 @@
     "vn-num2words": "^1.0.4"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "babel . --out-dir dist --ignore node_modules"
+    "build": "npx babel src --out-dir dist --extensions \".js,.jsx\"",
+    "prepare": "npm run build"
   },
   "resolutions": {
     "strip-ansi": "6.0.0"
